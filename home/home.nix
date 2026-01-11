@@ -9,14 +9,13 @@
     ./hypr/main.nix
     ./apps/ghostty.nix
     ./apps/yazi.nix
-    # ./stylix/main.nix
+    ./stylix/main.nix
   ];
   home.username = "f";
   home.homeDirectory = "/home/f";
   home.stateVersion = "24.11";
 
   home.packages = [
-    #   pkgs.nerd-fonts
     pkgs.neovim
     pkgs.git
   ];
