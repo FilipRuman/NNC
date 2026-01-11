@@ -10,10 +10,10 @@
         desktop = 10;
         popups = 10;
       };
-      monospace = {
-        package = pkgs.nerd-fonts.override {fonts = ["FiraCode"];};
-        name = "FiraCode Nerd Font Mono";
-      };
+      # monospace = {
+      #   package = pkgs.nerd-fonts.override {fonts = ["FiraCode"];};
+      #   name = "FiraCode Nerd Font Mono";
+      # };
       sansSerif = {
         package = pkgs.dejavu_fonts;
         name = "DejaVu Sans";
