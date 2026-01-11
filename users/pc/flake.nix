@@ -5,7 +5,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nix-flatpak.url = "github:gmodena/nix-flatpak";
     stylix.url = "github:danth/stylix";
-    home.url = "path:./../../home/home.nix";
+    home.url = "path:./../../home";
   };
 
   outputs = {
