@@ -2,7 +2,7 @@
   description = "Flake for sellecting machine config";
 
   inputs = {
-    pc.url = "path:./users/pc/flake.nix";
+    pc.url = "path:./users/pc";
   };
 
   outputs = {pc, ...} @ inputs: {
