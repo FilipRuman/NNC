@@ -6,6 +6,7 @@
     nix-flatpak.url = "github:gmodena/nix-flatpak";
     stylix.url = "github:danth/stylix";
     home.url = "path:./../../home";
+    home-manager.url = "github:nix-community/home-manager";
   };
 
   outputs = {
