@@ -11,7 +11,7 @@
         popups = 10;
       };
       monospace = {
-        package = pkgs.nerd_fonts.override {fonts = ["FiraCode"];};
+        package = pkgs.nerd-fonts.override {fonts = ["FiraCode"];};
         name = "FiraCode Nerd Font Mono";
       };
       sansSerif = {
