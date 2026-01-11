@@ -13,14 +13,16 @@
     self,
     nix-flatpak,
     home,
+    stylix,
     ...
   } @ inputs: {
     module = {...}: {
       imports = [
         inputs.home-manager.nixosModules.default
         nix-flatpak.nixosModules.nix-flatpak
-        inputs.stylix.nixosModules.stylix
+        stylix.nixosModules.stylix
         home.f
+        ./../../config/main.nix
       ];
     };
   };

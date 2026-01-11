@@ -9,7 +9,8 @@
     ./hypr/main.nix
     ./apps/ghostty.nix
     ./apps/yazi.nix
-    # ./stylix/main.nix
+    ./apps/fish.nix
+    ./stylix.nix
   ];
   home.username = "f";
   home.homeDirectory = "/home/f";

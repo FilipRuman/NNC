@@ -32,6 +32,8 @@
       starship init fish | source
       starship preset bracketed-segments -o ~/.config/starship.toml
       starship preset nerd-font-symbols -o ~/.config/starship.toml
+
+      zoxide init fish | source
     '';
     functions = {
       y = {
@@ -49,9 +51,6 @@
       vm = "~/vms/run.sh";
       nixCargo = "nix-shell --run 'cargo run'";
     };
-    extraConfig = ''
-      zoxide init fish | source
-    '';
   };
 
   programs.starship.enable = true;
