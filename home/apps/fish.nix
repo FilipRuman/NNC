@@ -8,7 +8,8 @@
     enable = true;
     shellAliases = {
       q = "qalc -c -i";
-      rebuild = "cd /etc/nixos/; sudo git add * ; sudo nixos-rebuild switch --upgrade --flake /etc/nixos/";
+      machineFlakeUpd = "sudo nix flake update /etc/nixos --update-input machine";
+      rebuild = "cd /etc/nixos/; sudo git add * ; machineFlakeUpd ; sudo nixos-rebuild switch --upgrade --flake /etc/nixos/";
       updateNix = "rebuild; flatpak update; nix profile upgrade ' * '; cleanup";
       config = "sudo -E -s nvim /etc/nixos/configuration.nix";
       bashrc = "sudo -E -s nvim ~/.bashrc";

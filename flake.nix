@@ -8,14 +8,12 @@
   outputs = {
     pkgs,
     lib,
-    config,
     pc,
     ...
   } @ inputs: {
     module = {
       pkgs,
       lib,
-      config,
       ...
     }: {
       imports = [
