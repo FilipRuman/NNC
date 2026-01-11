@@ -1,7 +1,7 @@
 {
   services.dunst.enable = true;
   services.dunst.settings = {
-    lib.mkForce.global = {
+    global = {
       frame_color = "#cad3f5";
       separator_color = "frame";
       corner_radius = 10;
@@ -14,15 +14,15 @@
       height = 100;
     };
 
-    lib.mkForce.  urgency_low = {
+    urgency_low = {
       background = "#24273A";
       foreground = "#CAD3F5";
     };
-    lib.mkForce.urgency_normal = {
+    urgency_normal = {
       background = "#24273A";
       foreground = "#CAD3F5";
     };
-    lib.mkForce.urgency_critical = {
+    urgency_critical = {
       background = "#24273A";
       foreground = "#CAD3F5";
       frame_color = "#F5A97F";
