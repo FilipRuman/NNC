@@ -5,17 +5,8 @@
     pc.url = "path:./users/pc/flake.nix";
   };
 
-  outputs = {
-    pkgs,
-    lib,
-    pc,
-    ...
-  } @ inputs: {
-    module = {
-      pkgs,
-      lib,
-      ...
-    }: {
+  outputs = {...} @ inputs: {
+    module = {...}: {
       imports = [
         pc.module
       ];
