@@ -35,6 +35,7 @@
       starship preset nerd-font-symbols -o ~/.config/starship.toml
 
       zoxide init fish | source
+      clear
     '';
     functions = {
       y = {

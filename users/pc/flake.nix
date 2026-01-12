@@ -7,6 +7,8 @@
     stylix.url = "github:danth/stylix";
     home.url = "path:./../../home";
     home-manager.url = "github:nix-community/home-manager";
+    nvf-config.url = "path:./../../nvf";
+    nvf.url = "github:notashelf/nvf";
   };
 
   outputs = {
@@ -14,15 +16,22 @@
     nix-flatpak,
     home,
     stylix,
+    nvf-config,
     ...
   } @ inputs: {
     module = {...}: {
       imports = [
         inputs.home-manager.nixosModules.default
+        inputs.nvf.nixosModules.default
         nix-flatpak.nixosModules.nix-flatpak
         stylix.nixosModules.stylix
         home.f
         ./../../config/main.nix
+        ({pkgs, ...}: {
+          environment.systemPackages = [
+            nvf-config.packages.x86_64-linux.default
+          ];
+        })
       ];
 
       nixConf = {
