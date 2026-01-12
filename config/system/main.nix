@@ -8,5 +8,7 @@
     ./networking.nix
     ./bootloader/grub.nix
     ./polkit.nix
+    ./wm/hypr.nix
+    ./gpu/nvidia.nix
   ];
 }

@@ -1,116 +1,17 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}: {
   nixpkgs.config.allowUnfree = true;
-  # TODO clean this shit
-  environment.systemPackages = with pkgs; [
-    polkit_gnome
-    delta
-    f3d
-    inkscape
-    yazi
-    quickemu
-    qmk
-    qemu
-    nodePackages_latest.coc-prettier
-    svls
-    gnumake
-    filezilla
-    dig
-    networkmanagerapplet
-    imagemagick
-    yarn
-    glow
-    lua5_1
-    lua
-    luarocks
-    nerd-fonts.fira-code
-    ripgrep
-    coreutils
-    fd
-    clang
-    stylua
-    alejandra
-    python312
-    python314
-    man-pages
-    nerd-fonts.symbols-only
-    glibc.dev
-    clang-tools
-    cmake
-    verilator
-    age
-    ninja
-    nextcloud-client
-    graphite-gtk-theme
-    kdePackages.kdeconnect-kde
-    #ventoy-full
-    zoxide
-    simpleDBus
-    dbus
-    qmk-udev-rules
-    kanata
-    ghidra
-    firefox
-    via
-    vial
-    openssl_3
-    nwg-look
-
-    # gnumake
-    rustfmt
-    # python3Full
-    steam-run
-    xdg-desktop-portal-hyprland
-    kdePackages.xdg-desktop-portal-kde
-    lxqt.lxqt-policykit
-    networkmanager
-    gparted
-    dbus
-    unrar
-    qalculate-qt
-    libqalculate
-    rofi
-    rofi-calc
-    #rofi-wayland
-    papirus-icon-theme
-    lazygit
-    # libsForQt5.lightly
-    arc-theme
-    libsForQt5.qt5ct
-    krusader
-    vlc
-    alsa-lib
-    cargo
-    rustc
-    pavucontrol
-    lf
-    obs-studio
-    signal-desktop-bin
-    (flameshot.override {enableWlrSupport = true;})
-    starship
-    fish
-    btop
-    #ente-auth
-    git-credential-manager
-    hyprlock
-    hypridle
-    dunst
-    swaybg
-    waypaper
-    xdg-desktop-portal
-    fd
-    mono
-    unzip
-    thunderbird
-    gcc
-    fzf
-    nodePackages_latest.nodejs
-    neovide
-    rust-analyzer
-    wl-clipboard
-    waybar
-    wireplumber
-    playerctl
-    kdePackages.kwallet
-    dotnetCorePackages.dotnet_8.sdk
+  imports = [
+    ./GUI.nix
+    ./ctf.nix
+    ./langs/c.nix
+    ./langs/cs.nix
+    ./langs/js.nix
+    ./langs/zig.nix
+    ./langs/rust.nix
   ];
 }

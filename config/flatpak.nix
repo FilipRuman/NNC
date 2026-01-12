@@ -1,22 +1,29 @@
-{pkgs, ...}: {
-
-  services.flatpak = {
-    enable = true;
-    packages = [
-      "io.ente.auth"
-      "app.zen_browser.zen"
-      "com.brave.Browser"
-      "com.discordapp.Discord"
-      "org.gimp.GIMP"
-      "org.kde.kdenlive"
-      "com.unity.UnityHub"
-    ];
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}: {
+  options = {
+    nixConf.flatpak.enable = lib.mkEnableOption "enables flatpak support";
+    nixConf.flatpak.packages = lib.mkOption {
+      type = lib.types.listOf lib.types.str;
+      default = [];
+      example = ["org.gimp.GIMP"];
+      description = "Flatpak application IDs to install system-wide.";
+    };
   };
-  systemd.services.flatpak-repo = {
-    wantedBy = ["multi-user.target"];
-    path = [pkgs.flatpak];
-    script = ''
-      flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-    '';
+  config = lib.mkIf config.nixConf.flatpak.enable {
+    services.flatpak = {
+      enable = true;
+      packages = config.nixConf.flatpak.packages;
+    };
+    systemd.services.flatpak-repo = {
+      wantedBy = ["multi-user.target"];
+      path = [pkgs.flatpak];
+      script = ''
+        flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+      '';
+    };
   };
 }

@@ -24,6 +24,46 @@
         home.f
         ./../../config/main.nix
       ];
+      nixConf = {
+        essentials.enable = true;
+        docker.enable = true;
+        essentials.enable = true;
+        keyboardFlashing.enable = true;
+        nvim.enable = true;
+        steam.enable = true;
+        stylix.enable = true;
+        terminalEnhancements.enable = true;
+        vm.enable = true;
+
+        pkgs = {
+          gui.enable = true;
+          ctf.enable = false;
+          langs = {
+            c.enable = true;
+            cs.enable = true;
+            rust.enable = true;
+          };
+        };
+
+        flatpak = {
+          enable = true;
+          packages = [
+            "io.ente.auth"
+            "app.zen_browser.zen"
+            "com.brave.Browser"
+            "com.discordapp.Discord"
+            "org.gimp.GIMP"
+            "org.kde.kdenlive"
+          ];
+        };
+
+        system = {
+          audio.enable = true;
+          bootloader.grub.enable = true;
+          wm.hypr.enable = true;
+          bluetooth.enable = true;
+        };
+      };
     };
   };
 }
