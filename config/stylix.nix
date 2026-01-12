@@ -9,7 +9,7 @@ in {
   options = {
     nixConf.stylix.enable = lib.mkEnableOption "enables stylix";
   };
-  config = lib.mkIf config.nixConf.sylix.enable {
+  config = lib.mkIf config.nixConf.stylix.enable {
     stylix = {
       enable = true;
       base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-dark.yaml";

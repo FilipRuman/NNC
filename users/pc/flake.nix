@@ -24,8 +24,8 @@
         home.f
         ./../../config/main.nix
       ];
+
       nixConf = {
-        essentials.enable = true;
         docker.enable = true;
         essentials.enable = true;
         keyboardFlashing.enable = true;
@@ -42,6 +42,7 @@
             c.enable = true;
             cs.enable = true;
             rust.enable = true;
+            js.enable = false; # Tfu *
           };
         };
 
@@ -53,7 +54,6 @@
             "com.brave.Browser"
             "com.discordapp.Discord"
             "org.gimp.GIMP"
-            "org.kde.kdenlive"
           ];
         };
 

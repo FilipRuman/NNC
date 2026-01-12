@@ -5,9 +5,9 @@
   ...
 }: {
   options = {
-    nixConf.system.bootloader.enable = lib.mkEnableOption "enables the grub bootloader";
+    nixConf.system.bootloader.grub.enable = lib.mkEnableOption "enables the grub bootloader";
   };
-  config = lib.mkIf config.nixConf.system.bootloader.enable {
+  config = lib.mkIf config.nixConf.system.bootloader.grub.enable {
     boot = {
       # Bootloader
       loader = {

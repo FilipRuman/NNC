@@ -5,18 +5,15 @@
   ...
 }: {
   options = {
-    nixconf.nvim.enable = lib.mkenableoption "enables neovim";
+    nixConf.nvim.enable = lib.mkEnableOption "enables neovim";
   };
-  config = lib.mkif config.nixconf.nvim.enable {
-    environment.systempackages = with pkgs; [
+  config = lib.mkIf config.nixConf.nvim.enable {
+    environment.systemPackages = with pkgs; [
       neovide
       wl-clipboard
     ];
     programs.neovim = {
       enable = true;
-      defaulteditor = true;
-      vialias = true;
-      vimalias = true;
     };
   };
 }

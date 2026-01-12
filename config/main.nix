@@ -2,7 +2,6 @@
   imports = [
     ./packages/main.nix
     ./system/main.nix
-    ./bluetooth.nix
     ./docker.nix
     ./essentials.nix
     ./flatpak.nix
