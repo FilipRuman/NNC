@@ -9,8 +9,9 @@
     shellAliases = {
       q = "qalc -c -i";
       machineFlakeUpd = "sudo nix flake update /etc/nixos --update-input machine";
+      onUpdate = "sudo /etc/nixos/onUpdate.sh";
       rebuild = "cd /etc/nixos/; machineFlakeUpd ; sudo nixos-rebuild switch --upgrade --flake /etc/nixos/";
-      updateNix = "rebuild; flatpak update; nix profile upgrade ' * '; cleanup";
+      updateNix = "rebuild; flatpak update -y; onUpdate ;nix profile upgrade ' * '; cleanup";
       config = "ne /etc/nixos/NNC";
       configSystem = "sudo -E -s nvim /etc/nixos/flake.nix";
       bashrc = "sudo -E -s nvim ~/.bashrc";
