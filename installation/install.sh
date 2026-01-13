@@ -1,4 +1,3 @@
-#!/bin/bash
 cd /etc/nixos || exit
 # leave only hardware-configuration
 shopt -s extglob dotglob
