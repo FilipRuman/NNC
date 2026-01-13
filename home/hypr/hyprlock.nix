@@ -6,7 +6,7 @@
       hide_cursor = true;
     };
 
-    lib.mkForce.background = [
+    background = [
       {
         path = "/home/f/Nextcloud/Walpapers/wallhaven-oggvw9.jpg";
         blur_passes = 2;
@@ -14,7 +14,7 @@
       }
     ];
 
-    lib.mkForce.input-field = [
+    input-field = [
       {
         size = "220, 50";
         position = "0, -80";

@@ -6,7 +6,6 @@
     ./essentials.nix
     ./flatpak.nix
     ./keyboardFlashing.nix
-    ./nvim.nix
     ./steam.nix
     ./stylix.nix
     ./terminalEnhancements.nix

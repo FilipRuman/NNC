@@ -1,6 +1,11 @@
 {
   wayland.windowManager.hyprland.enable = true;
+  services.hyprpolkitagent.enable = true;
   wayland.windowManager.hyprland.settings = {
+    cursor = {
+      no_hardware_cursors = true;
+      no_warps = false;
+    };
     "$mod" = "Super";
 
     "$terminal" = "ghostty";

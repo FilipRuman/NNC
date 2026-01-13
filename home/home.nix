@@ -10,6 +10,7 @@
     ./apps/ghostty.nix
     ./apps/yazi.nix
     ./apps/fish.nix
+    ./apps/codebook.nix
     ./stylix.nix
   ];
   home.username = "f";
@@ -17,8 +18,6 @@
   home.stateVersion = "24.11";
 
   home.packages = [
-    pkgs.neovim
-    pkgs.git
   ];
 
   home.sessionVariables = {

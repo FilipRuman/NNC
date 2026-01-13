@@ -16,6 +16,8 @@
 
       gparted
       firefox
+
+      neovide
     ];
   };
 }

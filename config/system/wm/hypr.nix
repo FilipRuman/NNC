@@ -19,10 +19,25 @@
       xdg-desktop-portal
       waybar
     ];
-   programs.hyprland = {
-    enable = true;
-    withUWSM = true; # recommended for most users
-    xwayland.enable = true; # Xwayland can be disabled.
-  };
+    programs.hyprland = {
+      enable = true;
+      withUWSM = true; # recommended for most users
+      xwayland.enable = true; # Xwayland can be disabled.
+      portalPackage = pkgs.xdg-desktop-portal-hyprland;
+    };
+    xdg.portal = {
+      enable = true;
+      extraPortals = [pkgs.xdg-desktop-portal-gtk];
+      configPackages = [pkgs.xdg-desktop-portal-gtk pkgs.xdg-desktop-portal-hyprland];
+      config = {
+        common = {
+          default = ["gtk"];
+        };
+        hyprland = {
+          default = ["gtk" "hyprland"];
+          "org.freedesktop.impl.portal.FileChooser" = ["gtk"];
+        };
+      };
+    };
   };
 }

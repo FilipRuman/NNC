@@ -12,7 +12,10 @@ in {
   config = lib.mkIf config.nixConf.stylix.enable {
     stylix = {
       enable = true;
-      base16Scheme = "${pkgs.base16-schemes}/share/themes/ayu-dark.yaml";
+      # base16Scheme = "${pkgs.base16-schemes}/share/themes/ayu-dark.yaml";
+      # base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night.yaml";
+      base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyodark-terminal.yaml";
+
       fonts = {
         sizes = {
           applications = 12;
