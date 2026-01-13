@@ -10,6 +10,7 @@
     fish.enable = true;
     rofi.enable = true;
     yazi.enable = true;
+
     # grub.enable = true;
   };
 }

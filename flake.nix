@@ -2,13 +2,12 @@
   description = "Flake for sellecting machine config";
 
   inputs = {
-    pc.url = "path:./users/pc";
   };
 
-  outputs = {pc, ...} @ inputs: {
-    module = {...}: {
+  outputs = {self, ...}: {
+    module = {userModule, ...}: {
       imports = [
-        pc.module
+        userModule
       ];
     };
   };

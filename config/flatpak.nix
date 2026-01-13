@@ -19,12 +19,14 @@
       packages = config.nixConf.flatpak.packages;
     };
     xdg.portal = {
-    enable = true;
+      enable = true;
 
-    extraPortals = [
-      pkgs.xdg-desktop-portal-gtk
-    ];
+      extraPortals = [
+        pkgs.xdg-desktop-portal-gtk
+      ];
     };
+    services.dbus.enable = true;
+
     systemd.services.flatpak-repo = {
       wantedBy = ["multi-user.target"];
       path = [pkgs.flatpak];

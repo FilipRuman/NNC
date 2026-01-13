@@ -1,3 +1,3 @@
 # NNC
 
-, add installation command, fix hyprlock ,stop using kde hte,
+add installation command,stop using kde,
