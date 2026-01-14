@@ -2,7 +2,15 @@
 
 NewNixConfig
 
-Installation command, I'm not responsible form any harm done by this command
+## Running My Nvf Config on Other Machines
+
+`nix run --refresh github:FilipRuman/NNC?dir=nvf/selfcontained`
+
+## Installation
+
+Installation command, I'm not responsible form any harm done by this command.
+You need to set the INSTALL_USER to: `pc/laptop/server` depending on what user
+script you want to install\
 `*_*`
 
 ```bash
