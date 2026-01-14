@@ -15,6 +15,7 @@
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
           modules = [
             ./../config/main.nix
+            ./theme.nix
           ];
         })
         .neovim;

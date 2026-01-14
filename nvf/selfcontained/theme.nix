@@ -1,6 +1,6 @@
 {
   vim.theme = {
-    style = "darker";
+    style = "night";
     name = "tokyonight";
   };
 }
