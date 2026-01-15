@@ -10,7 +10,7 @@
   config = lib.mkIf config.nixConf.pkgs.langs.cs.enable {
     environment.systemPackages = with pkgs; [
       mono
-      dotnetCorePackages.dotnet_8.sdk
+      dotnetCorePackages.sdk_10_0-bin
     ];
   };
 }
