@@ -12,6 +12,7 @@
       dbus
       steam-run
       btop
+      appimage-run
     ];
 
     programs.git.enable = true;
