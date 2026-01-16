@@ -34,6 +34,7 @@
       assembly.enable = true;
       astro.enable = true;
       csharp.enable = true;
+      nim.enable = true;
 
       # Language modules that are not as common.
       ts.enable = false;

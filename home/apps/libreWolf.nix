@@ -1,0 +1,3 @@
+{
+  programs.librewolf.enable = true;
+}

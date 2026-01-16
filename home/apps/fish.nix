@@ -4,6 +4,8 @@
     shellAliases = {
       addToDict = "nim r /etc/nixos/NNC/utils/addToDict.nim";
       q = "qalc -c -i";
+      helium = "nix run github:AlvaroParker/helium-nix";
+      zen = "nix run github:youwen5/zen-browser-flake";
       machineFlakeUpd = "sudo nix flake update /etc/nixos --update-input machine";
       onUpdate = "sudo /etc/nixos/onUpdate.sh";
       rebuild = "cd /etc/nixos/; machineFlakeUpd ; sudo nixos-rebuild switch --upgrade --flake /etc/nixos/";

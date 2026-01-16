@@ -11,6 +11,11 @@
     rofi.enable = true;
     yazi.enable = true;
 
+    zen-browser = {
+      enable = true;
+      profileNames = ["f"];
+    };
+
     # grub.enable = true;
   };
 }

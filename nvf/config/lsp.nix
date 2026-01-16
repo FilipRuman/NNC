@@ -26,6 +26,7 @@
             PossessiveNoun = true;
             SentenceCapitalization = true;
             SpellCheck = true;
+            userDictPath = "~/.config/harper/custom.dict";
           };
         };
       };
@@ -37,8 +38,8 @@
         enable = true;
         mappings = {
           confirm = "<Tab>";
-          next = "J";
-          previous = "K";
+          next = "<down>";
+          previous = "<up>";
         };
       };
     };

@@ -11,6 +11,7 @@
     ./apps/yazi.nix
     ./apps/fish.nix
     ./apps/spellcheck.nix
+    ./apps/libreWolf.nix
     ./stylix.nix
   ];
   home.username = "f";

@@ -18,6 +18,7 @@
         users = {
           "f" = import ./home.nix;
         };
+
         backupFileExtension = "home-managebak";
       };
     };
