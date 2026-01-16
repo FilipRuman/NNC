@@ -10,7 +10,7 @@
     ./apps/ghostty.nix
     ./apps/yazi.nix
     ./apps/fish.nix
-    ./apps/codebook.nix
+    ./apps/spellcheck.nix
     ./stylix.nix
   ];
   home.username = "f";

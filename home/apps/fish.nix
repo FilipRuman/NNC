@@ -2,6 +2,7 @@
   programs.fish = {
     enable = true;
     shellAliases = {
+      addToDict = "nim r /etc/nixos/NNC/utils/addToDict.nim";
       q = "qalc -c -i";
       machineFlakeUpd = "sudo nix flake update /etc/nixos --update-input machine";
       onUpdate = "sudo /etc/nixos/onUpdate.sh";

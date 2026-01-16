@@ -16,7 +16,9 @@ dictionaries = ["en_us", "en_gb"]
 # Custom allowlist of words to ignore (case-insensitive)
 # Codebook will add words here when you select "Add to dictionary"
 # Default: []
-words = ["codebook","keymaps","pkgs","NVF","NNC","config","nvf","keymaps","yazi","nvim", "rustc","Esc"]
+# 
+# I set words directly thru the home manager, so this is redundant
+#words = ["codebook","Nixpkgs","nixpkgs","Nix","Nixos","nix","nixos","Shader","shader","keymaps","pkgs","NVF","NNC","config","nvf","keymaps","yazi","nvim", "rustc","Esc"]
 
 # Words that should always be flagged as incorrect
 # Default: []
