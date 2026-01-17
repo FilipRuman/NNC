@@ -17,6 +17,8 @@
         hover = "<Leader>k";
         listReferences = "<C-q>";
         goToDefinition = "<C-d>";
+
+        renameSymbol = "<F2>";
       };
       harper-ls = {
         enable = true;

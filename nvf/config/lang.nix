@@ -1,9 +1,9 @@
 {
   vim = {
-    spellcheck = {
-      enable = true;
-      programmingWordlist.enable = true;
-    };
+    # spellcheck = {
+    #   enable = true;
+    #   programmingWordlist.enable = true;
+    # };
     diagnostics = {
       config = {
         virtual_text = true;

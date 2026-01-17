@@ -4,6 +4,19 @@
   ...
 }: let
   words = [
+    "gdshader"
+    "GdShader"
+    "math"
+    "Math"
+    "MathF"
+    "Mathf"
+    "mathf"
+    "biome"
+    "Biome"
+    "biomes"
+    "Biomes"
+    "Albedo"
+    "albedo"
     "Nim"
     "DotNet"
     "nim"

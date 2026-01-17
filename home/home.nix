@@ -22,7 +22,7 @@
   ];
 
   home.sessionVariables = {
-    EDITOR = "ne";
+    EDITOR = "nvim";
     BROWSER = "flatpak run app.zen_browser.zen";
     TERMINAL = "ghostty";
   };
