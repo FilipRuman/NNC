@@ -1,6 +1,8 @@
 {...}: {
   imports = [
-    ./hyprland.nix
+    ./hyprland/hyprland.nix
+    ./hyprland/pc.nix
+    ./hyprland/laptop.nix
     ./hypridle.nix
     ./hyprlock.nix
     ./waybar/style.nix

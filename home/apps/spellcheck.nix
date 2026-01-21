@@ -4,6 +4,16 @@
   ...
 }: let
   words = [
+    "Hyprland"
+    "hyprland"
+    "Hyprlock"
+    "hyprlock"
+    "Waypaper"
+    "wyapaper"
+    "Waybar"
+    "waybar"
+    "Wayland"
+    "wayland"
     "gdshader"
     "GdShader"
     "math"

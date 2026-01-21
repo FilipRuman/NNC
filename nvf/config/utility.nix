@@ -26,7 +26,7 @@
       undotree.enable = true;
 
       motion = {
-        precognition.enable = true;
+        precognition.enable = false;
       };
       images = {
         img-clip.enable = true;

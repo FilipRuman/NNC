@@ -20,6 +20,11 @@
         inputs.nvf.module
         ./../../config/main.nix
       ];
+
+      home-manager.users.f = {
+        machines.pc.enable = true;
+      };
+
       nixConf = {
         docker.enable = true;
         essentials.enable = true;

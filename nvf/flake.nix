@@ -5,7 +5,6 @@
     # you must also add it as a flake input.
 
     # Required, nvf works best and only directly supports flakes
-    obsidian-nvim.url = "github:epwalsh/obsidian.nvim";
     nvf = {
       url = "github:NotAShelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";

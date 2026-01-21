@@ -9,7 +9,7 @@
       machineFlakeUpd = "sudo nix flake update /etc/nixos --update-input machine";
       onUpdate = "sudo /etc/nixos/onUpdate.sh";
       rebuild = "cd /etc/nixos/; machineFlakeUpd ; sudo nixos-rebuild switch --upgrade --flake /etc/nixos/";
-      updateNix = "rebuild; flatpak update -y; onUpdate ;nix profile upgrade ' * '; cleanup";
+      updateNix = "cd /etc/nixos/;sudo nix flake update; rebuild; flatpak update -y; onUpdate ;nix profile upgrade ' * '; cleanup";
       config = "ne /etc/nixos/NNC";
       configSystem = "sudo -E -s nvim /etc/nixos/flake.nix";
       bashrc = "sudo -E -s nvim ~/.bashrc";

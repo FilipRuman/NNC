@@ -14,18 +14,24 @@
     ./apps/libreWolf.nix
     ./stylix.nix
   ];
-  home.username = "f";
-  home.homeDirectory = "/home/f";
-  home.stateVersion = "24.11";
-
-  home.packages = [
-  ];
-
-  home.sessionVariables = {
-    EDITOR = "nvim";
-    BROWSER = "flatpak run app.zen_browser.zen";
-    TERMINAL = "ghostty";
+  options = {
+    machines.pc.enable = lib.mkEnableOption "";
+    machines.laptop.enable = lib.mkEnableOption "";
   };
+  config = {
+    home.username = "f";
+    home.homeDirectory = "/home/f";
+    home.stateVersion = "24.11";
 
-  programs.home-manager.enable = true;
+    home.packages = [
+    ];
+
+    home.sessionVariables = {
+      EDITOR = "nvim";
+      BROWSER = "flatpak run app.zen_browser.zen";
+      TERMINAL = "ghostty";
+    };
+
+    programs.home-manager.enable = true;
+  };
 }
