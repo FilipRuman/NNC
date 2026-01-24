@@ -13,7 +13,8 @@
       enable = true;
     };
 
-    # Load nvidia driver for Xorg and Wayland
+    #For nixos-unstable, they renamed it
+    services.xserver.enable = true;
     services.xserver.videoDrivers = ["nvidia"];
 
     hardware.nvidia = {

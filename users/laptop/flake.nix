@@ -10,27 +10,21 @@
     nvf.url = "path:./../../nvf";
   };
 
-  outputs = {
-    self,
-    nvf,
-    nix-flatpak,
-    home,
-    stylix,
-    ...
-  } @ inputs: {
-    module = {
-      lib,
-      config,
-      ...
-    }: {
+  outputs = inputs: {
+    module = {pkgs, ...}: {
       imports = [
         inputs.home-manager.nixosModules.default
-        nix-flatpak.nixosModules.nix-flatpak
-        stylix.nixosModules.stylix
-        home.f
-        nvf.module
+        inputs.nix-flatpak.nixosModules.nix-flatpak
+        inputs.stylix.nixosModules.stylix
+        inputs.home.f
+        inputs.nvf.module
         ./../../config/main.nix
       ];
+
+      home-manager.users.f = {
+        machines.laptop.enable = true;
+      };
+
       nixConf = {
         docker.enable = true;
         essentials.enable = true;
@@ -39,15 +33,18 @@
         stylix.enable = true;
         terminalEnhancements.enable = true;
         vm.enable = true;
-
+        system.gpu.nvidia.enable = true;
+        system.wm.plasma.enable = true;
         pkgs = {
           gui.enable = true;
           ctf.enable = false;
+          blender.enable = true;
           langs = {
+            nim.enable = true;
             c.enable = true;
             cs.enable = true;
             rust.enable = true;
-            js.enable = false; # Tfu *
+            js.enable = false;
           };
         };
 
@@ -55,7 +52,6 @@
           enable = true;
           packages = [
             "io.ente.auth"
-            "app.zen_browser.zen"
             "com.brave.Browser"
             "com.discordapp.Discord"
             "org.gimp.GIMP"
@@ -64,7 +60,8 @@
 
         system = {
           audio.enable = true;
-          bootloader.grub.enable = true;
+          bootloader.grub.enable = false;
+          bootloader.systemd.enable = true;
           wm.hypr.enable = true;
           bluetooth.enable = true;
         };

@@ -33,6 +33,7 @@
         stylix.enable = true;
         terminalEnhancements.enable = true;
         vm.enable = true;
+        system.gpu.nvidia.enable = true;
         system.wm.plasma.enable = true;
         pkgs = {
           gui.enable = true;
