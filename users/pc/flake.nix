@@ -11,7 +11,7 @@
   };
 
   outputs = inputs: {
-    module = {pkgs, ...}: {
+    module = {...}: {
       imports = [
         inputs.home-manager.nixosModules.default
         inputs.nix-flatpak.nixosModules.nix-flatpak
@@ -33,8 +33,6 @@
         stylix.enable = true;
         terminalEnhancements.enable = true;
         vm.enable = true;
-        system.gpu.nvidia.enable = true;
-        system.wm.plasma.enable = true;
         pkgs = {
           gui.enable = true;
           ctf.enable = false;
@@ -61,8 +59,12 @@
         system = {
           audio.enable = true;
           bootloader.grub.enable = true;
-          wm.hypr.enable = true;
+          wm = {
+            hypr.enable = true;
+            plasma.enable = true;
+          };
           bluetooth.enable = true;
+          gpu.nvidia.enable = true;
         };
       };
     };

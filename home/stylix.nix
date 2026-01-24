@@ -15,7 +15,5 @@
       enable = true;
       profileNames = ["f"];
     };
-
-    # grub.enable = true;
   };
 }

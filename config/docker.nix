@@ -12,15 +12,11 @@
       enable = true;
       enableNvidia = true;
     };
-
     hardware.nvidia-container-toolkit.enable =
       lib.mkIf config.nixConf.system.gpu.nvidia.enable true;
-
     environment.systemPackages = with pkgs; [
       nvidia-container-toolkit
     ];
-
-    # Regular Docker
     virtualisation.docker.daemon.settings.features.cdi = true;
   };
 }

@@ -1,5 +1,4 @@
 {
-  config,
   pkgs,
   lib,
   ...
@@ -19,17 +18,19 @@
     machines.laptop.enable = lib.mkEnableOption "";
   };
   config = {
-    home.username = "f";
-    home.homeDirectory = "/home/f";
-    home.stateVersion = "24.11";
+    home = {
+      username = "f";
+      homeDirectory = "/home/f";
+      stateVersion = "24.11";
 
-    home.packages = [
-    ];
+      packages = [
+      ];
 
-    home.sessionVariables = {
-      EDITOR = "nvim";
-      BROWSER = "flatpak run app.zen_browser.zen";
-      TERMINAL = "ghostty";
+      sessionVariables = {
+        EDITOR = "nvim";
+        BROWSER = "flatpak run app.zen_browser.zen";
+        TERMINAL = "ghostty";
+      };
     };
 
     programs.home-manager.enable = true;

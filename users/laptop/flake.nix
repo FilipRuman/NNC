@@ -11,7 +11,7 @@
   };
 
   outputs = inputs: {
-    module = {pkgs, ...}: {
+    module = {...}: {
       imports = [
         inputs.home-manager.nixosModules.default
         inputs.nix-flatpak.nixosModules.nix-flatpak
@@ -26,19 +26,17 @@
       };
 
       nixConf = {
-        docker.enable = true;
+        docker.enable = false;
         essentials.enable = true;
         keyboardFlashing.enable = true;
         steam.enable = true;
         stylix.enable = true;
         terminalEnhancements.enable = true;
-        vm.enable = true;
-        system.gpu.nvidia.enable = true;
-        system.wm.plasma.enable = true;
+        vm.enable = false;
         pkgs = {
           gui.enable = true;
           ctf.enable = false;
-          blender.enable = true;
+          blender.enable = false;
           langs = {
             nim.enable = true;
             c.enable = true;
@@ -52,17 +50,19 @@
           enable = true;
           packages = [
             "io.ente.auth"
-            "com.brave.Browser"
             "com.discordapp.Discord"
-            "org.gimp.GIMP"
           ];
         };
-
         system = {
+          gpu.nvidia.enable = true;
+          wm = {
+            plasma.enable = false;
+            hypr.enable = true;
+          };
+
           audio.enable = true;
-          bootloader.grub.enable = false;
-          bootloader.systemd.enable = true;
-          wm.hypr.enable = true;
+          bootloader.grub.enable = true;
+          bootloader.systemd.enable = false;
           bluetooth.enable = true;
         };
       };

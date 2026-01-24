@@ -20,6 +20,7 @@ in {
         package = pkgs.bibata-cursors;
         name = "Bibata-Modern-Classic";
       };
+      autoEnable = true;
       fonts = {
         sizes = {
           applications = 12;
