@@ -61,8 +61,8 @@
           };
 
           audio.enable = true;
-          bootloader.grub.enable = true;
-          bootloader.systemd.enable = false;
+          bootloader.grub.enable = false;
+          bootloader.systemd.enable = true;
           bluetooth.enable = true;
         };
       };

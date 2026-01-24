@@ -7,6 +7,7 @@
     ./other.nix
     ./networking.nix
     ./bootloader/grub.nix
+    ./bootloader/systemd.nix
     ./polkit.nix
     ./wm/hypr.nix
     ./wm/plasma.nix
