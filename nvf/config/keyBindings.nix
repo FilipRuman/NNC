@@ -9,6 +9,12 @@
     };
     keymaps = [
       {
+        key = "<leader><leader>";
+        mode = "n";
+        silent = true;
+        action = "<leader>ff";
+      }
+      {
         key = "jj";
         mode = "i";
         silent = true;

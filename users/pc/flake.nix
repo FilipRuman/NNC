@@ -2,12 +2,14 @@
   description = "Flake for PC machine";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nix-flatpak.url = "github:gmodena/nix-flatpak";
     stylix.url = "github:danth/stylix";
     home.url = "path:./../../home";
     home-manager.url = "github:nix-community/home-manager";
     nvf.url = "path:./../../nvf";
+    zen.url = "path:./../../zen";
+    home.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = inputs: {
@@ -18,6 +20,7 @@
         inputs.stylix.nixosModules.stylix
         inputs.home.f
         inputs.nvf.module
+        inputs.zen.module
         ./../../config/main.nix
       ];
 

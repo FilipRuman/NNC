@@ -6,6 +6,7 @@
 }: {
   config = lib.mkIf config.machines.pc.enable {
     wayland.windowManager.hyprland.settings = {
+      exec-once = ["/home/f/docker/wakatime/wakapi"];
       input = {
         sensitivity = -.7;
         accel_profile = "flat";

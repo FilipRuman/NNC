@@ -4,6 +4,12 @@
   ...
 }: let
   words = [
+    "upd"
+    "Upd"
+    "lod"
+    "Lod"
+    "LOD"
+    "uvs"
     "Hyprland"
     "hyprland"
     "Hyprlock"

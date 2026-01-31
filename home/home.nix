@@ -1,11 +1,8 @@
-{
-  pkgs,
-  lib,
-  ...
-}: {
+{lib, ...}: {
   imports = [
-    ./dunst.nix
     ./hypr/main.nix
+    ./apps/dunst.nix
+    ./apps/rofi.nix
     ./apps/ghostty.nix
     ./apps/yazi.nix
     ./apps/fish.nix

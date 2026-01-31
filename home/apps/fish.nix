@@ -6,7 +6,7 @@
       q = "qalc -c -i";
       helium = "nix run github:AlvaroParker/helium-nix";
       zen = "nix run github:youwen5/zen-browser-flake";
-      machineFlakeUpd = "sudo nix flake update /etc/nixos --update-input machine";
+      machineFlakeUpd = "sudo nix flake update";
       onUpdate = "sudo /etc/nixos/onUpdate.sh";
       rebuild = "cd /etc/nixos/; machineFlakeUpd ; sudo nixos-rebuild switch --upgrade --flake /etc/nixos/";
       updateNix = "cd /etc/nixos/;sudo nix flake update; rebuild; flatpak update -y; onUpdate ;nix profile upgrade ' * '; cleanup";

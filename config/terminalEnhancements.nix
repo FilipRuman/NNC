@@ -22,6 +22,7 @@
       qalculate-qt
       lazygit
       lf
+      zip
 
       unrar
       unzip

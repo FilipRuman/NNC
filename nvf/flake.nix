@@ -1,14 +1,9 @@
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    # Optional, if you intend to follow nvf's obsidian-nvim input
-    # you must also add it as a flake input.
-
-    # Required, nvf works best and only directly supports flakes
     nvf = {
       url = "github:NotAShelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.obsidian-nvim.follows = "obsidian-nvim"; # <- this will use the obsidian-nvim from your inputs
     };
   };
 

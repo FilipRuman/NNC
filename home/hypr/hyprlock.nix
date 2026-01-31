@@ -8,7 +8,7 @@
 
     background = [
       {
-        path = "/home/f/Nextcloud/Walpapers/wallhaven-oggvw9.jpg";
+        path = "/home/f/Walpapers/wallhaven-oggvw9.jpg";
         blur_passes = 2;
         blur_size = 2;
       }
