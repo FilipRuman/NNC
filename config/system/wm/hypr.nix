@@ -8,7 +8,6 @@
     nixConf.system.wm.hypr.enable = lib.mkEnableOption "enables the hyprland";
   };
   config = lib.mkIf config.nixConf.system.wm.hypr.enable {
-    services.displayManager.sddm.enable = true;
     environment.systemPackages = with pkgs; [
       rofi
       rofi-calc

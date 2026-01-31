@@ -24,7 +24,7 @@
       home-manager.users.f = {
         machines.laptop.enable = true;
       };
-
+      boot.kernelParams = ["i915.enable_guc=3"];
       nixConf = {
         docker.enable = false;
         essentials.enable = true;
