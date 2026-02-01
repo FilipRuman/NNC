@@ -6,7 +6,7 @@
     ./apps/ghostty.nix
     ./apps/yazi.nix
     ./apps/fish.nix
-    ./apps/spellcheck.nix
+    ./apps/spellcheck/spellcheck.nix
     ./apps/libreWolf.nix
     ./stylix.nix
   ];

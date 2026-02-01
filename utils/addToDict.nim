@@ -20,7 +20,7 @@ proc toAddToFile(): string =
 
 proc main () =
 
-        const dictFilePath = "/etc/nixos/NNC/home/apps/spellcheck.nix"
+        const dictFilePath = "/etc/nixos/NNC/home/apps/spellcheck/spellcheck.nix"
         var fileContents = readFile(dictFilePath)
         let wordArrayDeclearePos = fileContents.find("words ")
         if wordArrayDeclearePos == -1:
