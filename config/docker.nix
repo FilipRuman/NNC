@@ -8,16 +8,17 @@
     nixConf.docker.enable = lib.mkEnableOption "enables docker support";
   };
   config = lib.mkIf config.nixConf.docker.enable {
-    virtualisation.docker = {
-      enable = true;
-      enableNvidia = true;
-    };
-
     hardware.nvidia-container-toolkit.enable =
       lib.mkIf config.nixConf.system.gpu.nvidia.enable true;
     environment.systemPackages = with pkgs; [
       nvidia-container-toolkit
     ];
-    virtualisation.docker.daemon.settings.features.cdi = true;
+    virtualisation.docker = {
+      enable = true;
+      enableNvidia = true;
+
+      daemon.settings.features.cdi = true;
+      enableOnBoot = false;
+    };
   };
 }

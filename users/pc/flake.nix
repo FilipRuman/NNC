@@ -10,10 +10,13 @@
     nvf.url = "path:./../../nvf";
     zen.url = "path:./../../zen";
     home.inputs.nixpkgs.follows = "nixpkgs";
+    # grub-theme.url = "path:./../../grub_theme";
   };
 
   outputs = inputs: {
     module = {...}: {
+      boot.initrd.kernelModules = ["amdgpu"];
+      boot.kernelParams = ["nvidia-drm.modeset=1"];
       imports = [
         inputs.home-manager.nixosModules.default
         inputs.nix-flatpak.nixosModules.nix-flatpak
@@ -21,6 +24,7 @@
         inputs.home.f
         inputs.nvf.module
         inputs.zen.module
+        # inputs.grub-theme.module
         ./../../config/main.nix
       ];
 
@@ -61,13 +65,14 @@
 
         system = {
           audio.enable = true;
-          bootloader.grub.enable = true;
+          bootloader.systemd.enable = true;
           wm = {
             hypr.enable = true;
-            plasma.enable = true;
+            plasma.enable = false;
           };
           bluetooth.enable = true;
           gpu.nvidia.enable = true;
+          plymouth.enable = true;
         };
       };
     };

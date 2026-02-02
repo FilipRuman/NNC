@@ -21,6 +21,10 @@ in {
         name = "Bibata-Modern-Classic";
       };
       autoEnable = true;
+      targets = {
+        grub.enable = false;
+        plymouth.enable = false;
+      };
       fonts = {
         sizes = {
           applications = 12;

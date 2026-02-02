@@ -12,5 +12,6 @@
     ./wm/hypr.nix
     ./wm/plasma.nix
     ./gpu/nvidia.nix
+    ./plymouth.nix
   ];
 }

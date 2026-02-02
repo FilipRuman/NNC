@@ -18,7 +18,6 @@
           efiSupport = true;
           useOSProber = true;
         };
-        timeout = 1;
       };
     };
   };
