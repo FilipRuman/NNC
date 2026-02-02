@@ -64,6 +64,7 @@
           bootloader.grub.enable = false;
           bootloader.systemd.enable = true;
           bluetooth.enable = true;
+          plymouth.enable = true;
         };
       };
     };

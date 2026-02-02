@@ -10,7 +10,6 @@
     nvf.url = "path:./../../nvf";
     zen.url = "path:./../../zen";
     home.inputs.nixpkgs.follows = "nixpkgs";
-    # grub-theme.url = "path:./../../grub_theme";
   };
 
   outputs = inputs: {
@@ -24,7 +23,6 @@
         inputs.home.f
         inputs.nvf.module
         inputs.zen.module
-        # inputs.grub-theme.module
         ./../../config/main.nix
       ];
 
