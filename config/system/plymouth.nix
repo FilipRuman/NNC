@@ -27,7 +27,7 @@
         "quiet"
         "udev.log_level=3"
         "systemd.show_status=auto"
-
+        "video=1920x1080"
         # "video=efifb:off" # test
         # "nvidia.NVreg_EnableConsole=0"
       ];

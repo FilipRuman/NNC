@@ -9,6 +9,7 @@
     ./apps/spellcheck/spellcheck.nix
     ./apps/libreWolf.nix
     ./stylix.nix
+    ./fonts.nix
   ];
   options = {
     machines.pc.enable = lib.mkEnableOption "";
