@@ -3,6 +3,7 @@
   services.hypridle.settings = {
     general = {
       after_sleep_cmd = "hyprctl dispatch dpms on";
+      before_sleep_cmd = "loginctl lock-session"; # lock before suspend.
       ignore_dbus_inhibit = false;
       lock_cmd = "hyprlock";
     };
@@ -12,12 +13,11 @@
         timeout = 300;
         on-timeout = "hyprlock";
       }
-      # {
-      #   timeout = 360;
-      #   on-timeout = "hyprctl dispatch dpms off";
-      #
-      #   on-resume = "hyprctl dispatch dpms on";
-      # }
+      {
+        timeout = 150; # 2.5min.
+        on-timeout = "hyprctl dispatch dpms off"; # screen off when timeout has passed
+        on-resume = "hyprctl dispatch dpms on && brightnessctl -r"; # screen on when activity is detected after timeout has fired.
+      }
     ];
   };
 }
