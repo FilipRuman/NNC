@@ -23,7 +23,6 @@
       lazygit
       lf
       zip
-
       unrar
       unzip
     ];

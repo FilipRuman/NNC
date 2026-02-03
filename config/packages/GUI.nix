@@ -11,12 +11,9 @@
     environment.systemPackages = with pkgs; [
       signal-desktop-bin
       (flameshot.override {enableWlrSupport = true;})
-
-      nextcloud-client
-
+      # nextcloud-client
       gparted
       firefox
-
       neovide
     ];
   };

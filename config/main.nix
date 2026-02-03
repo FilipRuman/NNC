@@ -1,5 +1,6 @@
-{pkgs, ...}: {
+{...}: {
   imports = [
+    ./recording.nix
     ./ssdmTheme.nix
     ./packages/main.nix
     ./system/main.nix

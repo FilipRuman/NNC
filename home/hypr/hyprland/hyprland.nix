@@ -103,6 +103,8 @@
         "$mod, M, exec, krusader"
         "$mod, H, exec, $menu -show drun"
         "$mod, X, exec, hyprlock"
+        "$mod, T, exec, /etc/nixos/NNC/utils/record/start.bash"
+        "$mod SHIFT, T, exec, /etc/nixos/NNC/utils/record/end.bash"
         "$mod, O, exec, flameshot gui"
 
         "Super , R, fullscreen,"
