@@ -19,7 +19,7 @@
       fd
       fish
       delta # git diff
-      qalculate-qt
+      libqalculate
       lazygit
       lf
       zip
