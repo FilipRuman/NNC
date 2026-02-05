@@ -4,7 +4,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     machine.url = "path:./NNC";
-    user.url = "path:./NNC/users/server";
+    user.url = "path:./NNC/machines/server";
   };
 
   outputs = {
