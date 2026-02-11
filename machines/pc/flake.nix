@@ -39,6 +39,7 @@
         terminalEnhancements.enable = true;
         vm.enable = true;
         pkgs = {
+          unity.enable = true;
           gui.enable = true;
           ctf.enable = false;
           blender.enable = true;

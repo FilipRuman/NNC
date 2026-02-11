@@ -15,6 +15,10 @@
       kb_layout = "pl";
     };
 
+    xwayland = {
+      force_zero_scaling = true;
+    };
+
     exec-once = [
       "flatpak run app.zen_browser.zen"
       #"flatpak run com.discordapp.Discord"

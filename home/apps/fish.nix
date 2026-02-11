@@ -17,6 +17,7 @@
       updateAllSubmodules = "git submodule update --init --recursive";
       configGhostty = "~/.config/ghostty/config";
       ne = "neovide";
+      rem_vim = "nix run --refresh github:FilipRuman/NNC?dir=nvf/selfcontained";
       sudoNvim = "sudo -E -s nvim";
       cleanup = "sudo nix-collect-garbage --delete-older-than 3d";
       cleanupAll = "sudo nix-collect-garbage -d";

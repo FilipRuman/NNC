@@ -19,12 +19,12 @@
       bash.enable = true;
       clang.enable = true;
       css.enable = true;
-      html.enable = true;
+      html.enable = false;
       json.enable = true;
       sql.enable = true;
       go.enable = true;
       lua.enable = true;
-      zig.enable = true;
+      zig.enable = false;
       python.enable = true;
       typst.enable = false;
       rust = {
