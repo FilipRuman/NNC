@@ -7,7 +7,14 @@
        })
        -- Ensure Treesitter respects it
        vim.api.nvim_set_hl(0, "@comment", { link = "Comment" })
+
+      vim.diagnostic.config({
+          float = {
+            border = "rounded"
+          }
+        })
     '';
+
     theme = {
       enable = true;
       transparent = false;

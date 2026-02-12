@@ -2,12 +2,31 @@
   vim = {
     binds.whichKey.enable = true;
     binds.cheatsheet.enable = true;
-
+    options.laststatus = 0;
     globals = {
       mapleader = " ";
       maplocalleader = " ";
     };
     keymaps = [
+      {
+        key = "<leader>q";
+        mode = "n";
+        silent = true;
+        action = ":lua vim.diagnostic.setqflist()<Cr>";
+      }
+      {
+        key = "<down>";
+        mode = "n";
+        silent = true;
+        action = ":lua vim.diagnostic.goto_next()<Cr>";
+      }
+      {
+        key = "<up>";
+        mode = "n";
+        silent = true;
+        action = ":lua vim.diagnostic.goto_prev()<Cr>";
+      }
+
       {
         key = "<leader><leader>";
         mode = "n";

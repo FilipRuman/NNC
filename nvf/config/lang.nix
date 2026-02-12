@@ -27,13 +27,17 @@
       zig.enable = false;
       python.enable = true;
       typst.enable = false;
+
       rust = {
         enable = true;
         extensions.crates-nvim.enable = true;
       };
       assembly.enable = true;
       astro.enable = true;
-      csharp.enable = true;
+      csharp = {
+        enable = true;
+        lsp.servers = ["roslyn_ls"];
+      };
       nim.enable = true;
 
       # Language modules that are not as common.

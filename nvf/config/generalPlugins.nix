@@ -16,7 +16,7 @@
     telescope.enable = true;
     statusline = {
       lualine = {
-        enable = true;
+        enable = false;
       };
     };
     autopairs.nvim-autopairs.enable = true;
