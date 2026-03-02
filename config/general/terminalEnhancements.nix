@@ -4,11 +4,11 @@
   config,
   ...
 }: {
-  options = {
-    nixConf.terminalEnhancements.enable = lib.mkEnableOption "enables basic terminal enhancements packages that are core to my workflow";
-  };
+  options.nixConf.terminalEnhancements.enable = lib.mkEnableOption "enables basic terminal enhancements packages that are core to my workflow";
   config = lib.mkIf config.nixConf.terminalEnhancements.enable {
     environment.systemPackages = with pkgs; [
+      wget
+      fastfetch
       fzf
       fd
       starship

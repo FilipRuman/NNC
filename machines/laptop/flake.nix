@@ -33,17 +33,14 @@
         stylix.enable = true;
         terminalEnhancements.enable = true;
         vm.enable = false;
-        pkgs = {
-          gui.enable = true;
-          ctf.enable = false;
-          blender.enable = false;
-          langs = {
-            nim.enable = true;
-            c.enable = true;
-            cs.enable = true;
-            rust.enable = true;
-            js.enable = false;
-          };
+        gui.enable = true;
+        ctf.enable = false;
+        langs = {
+          nim.enable = true;
+          c.enable = true;
+          cs.enable = true;
+          rust.enable = true;
+          js.enable = false;
         };
 
         flatpak = {
@@ -54,6 +51,7 @@
           ];
         };
         system = {
+          sddm.enable = true;
           gpu.nvidia.enable = true;
           wm = {
             plasma.enable = false;

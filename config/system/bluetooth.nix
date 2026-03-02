@@ -1,12 +1,9 @@
 {
-  pkgs,
   lib,
   config,
   ...
 }: {
-  options = {
-    nixConf.system.bluetooth.enable = lib.mkEnableOption "enables bluetooth support";
-  };
+  options.nixConf.system.bluetooth.enable = lib.mkEnableOption "";
   config = lib.mkIf config.nixConf.system.bluetooth.enable {
     hardware.bluetooth = {
       enable = true;

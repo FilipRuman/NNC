@@ -1,9 +1,8 @@
 {pkgs, ...}: {
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
-  # Enable touchpad support (enabled default in most desktopManager).
-  services.libinput.enable = true;
+  boot.kernelPackages = pkgs.linuxPackages_zen; # Should be stabler and better for gaming
   security.sudo.wheelNeedsPassword = false;
   services.gnome.gnome-keyring.enable = true;
+  environment.systemPackages = with pkgs; [
+    dbus
+  ];
 }

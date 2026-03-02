@@ -101,6 +101,7 @@
         "$mod SHIFT Control_L, Q, exit,"
         "$mod SHIFT, C, killactive,"
         "Super Control_L, E, exec,shutdown now"
+        "Super Control_L, S, exec,systemctl suspend"
         "$mod SHIFT Control_L, R, exec, reboot"
 
         "$mod, G, exec, ghostty"
@@ -109,7 +110,8 @@
         "$mod, X, exec, hyprlock"
         "$mod, T, exec, /etc/nixos/NNC/utils/record/start.bash"
         "$mod SHIFT, T, exec, /etc/nixos/NNC/utils/record/end.bash"
-        "$mod, O, exec, flameshot gui"
+        "$mod, O, exec, grimblast -n copy area"
+        "Super Control_L, O, exec, grimblast -n edit area"
 
         "Super , R, fullscreen,"
         "$mod, A, movetoworkspacesilent, 9"

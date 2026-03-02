@@ -4,9 +4,7 @@
   config,
   ...
 }: {
-  options = {
-    nixConf.system.audio.enable = lib.mkEnableOption "enables audio packages";
-  };
+  options.nixConf.system.audio.enable = lib.mkEnableOption "";
   config = lib.mkIf config.nixConf.system.audio.enable {
     services.pulseaudio.enable = false;
     security.rtkit.enable = true;

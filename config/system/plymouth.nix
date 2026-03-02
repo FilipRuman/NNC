@@ -4,16 +4,13 @@
   config,
   ...
 }: {
-  options = {
-    nixConf.system.plymouth.enable = lib.mkEnableOption "";
-  };
+  options.nixConf.system.plymouth.enable = lib.mkEnableOption "";
   config = lib.mkIf config.nixConf.system.plymouth.enable {
     boot = {
       plymouth = {
         enable = true;
         theme = "rings_2";
         themePackages = with pkgs; [
-          # By default we would install all themes
           (adi1090x-plymouth-themes.override {
             selected_themes = ["rings_2"];
           })
@@ -27,14 +24,11 @@
         "quiet"
         "udev.log_level=3"
         "systemd.show_status=auto"
-        "video=1920x1080"
-        # "video=efifb:off" # test
-        # "nvidia.NVreg_EnableConsole=0"
+        "video=3840x2160"
       ];
 
       # Hide the OS choice for bootloaders.
-      # It's still possible to open the bootloader list by pressing any key
-      # It will just not appear on screen unless a key is pressed
+      # Spam space when booting to show it anyway
       loader.timeout = 0;
     };
     boot.initrd.systemd.enable = true;

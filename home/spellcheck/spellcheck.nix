@@ -1,5 +1,7 @@
 {lib, ...}: let
   words = [
+    "polkit"
+    "grimblast"
     "Multimesh"
     "upd"
     "Upd"

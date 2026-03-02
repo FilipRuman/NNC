@@ -15,8 +15,7 @@
         settings = ./config/main.nix;
       };
       environment.systemPackages = with pkgs; [
-        # imagemagick
-        # ueberzugpp
+        neovide
       ];
     };
   };

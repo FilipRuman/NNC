@@ -4,10 +4,8 @@
   config,
   ...
 }: {
-  options = {
-    nixConf.pkgs.langs.c.enable = lib.mkEnableOption "enables the c lang";
-  };
-  config = lib.mkIf config.nixConf.pkgs.langs.c.enable {
+  options.nixConf.langs.c.enable = lib.mkEnableOption "enables the c lang";
+  config = lib.mkIf config.nixConf.langs.c.enable {
     environment.systemPackages = with pkgs; [
       ninja
       glibc.dev

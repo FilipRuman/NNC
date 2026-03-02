@@ -4,13 +4,10 @@
   config,
   ...
 }: {
-  options = {
-    nixConf.system.wm.hypr.enable = lib.mkEnableOption "enables the hyprland";
-  };
+  options.nixConf.system.wm.hypr.enable = lib.mkEnableOption "";
   config = lib.mkIf config.nixConf.system.wm.hypr.enable {
     environment.systemPackages = with pkgs; [
       rofi
-      rofi-calc
       hyprlock
       hypridle
       dunst
@@ -25,17 +22,13 @@
       wl-clipboard # Command-line copy/paste utilities for Wayland
     ];
 
-    services = {
-      displayManager.sddm.enable = true;
-
-      displayManager.sddm.wayland.enable = true;
-    };
     programs.hyprland = {
       enable = true;
       withUWSM = false; # recommended for most users
-      xwayland.enable = true; # Xwayland can be disabled.
+      xwayland.enable = true; #
       portalPackage = pkgs.xdg-desktop-portal-hyprland;
     };
+
     xdg.portal = {
       enable = true;
       extraPortals = [pkgs.xdg-desktop-portal-gtk];

@@ -1,15 +1,8 @@
 {lib, ...}: {
   imports = [
     ./hypr/main.nix
-    ./apps/dunst.nix
-    ./apps/rofi.nix
-    ./apps/ghostty.nix
-    ./apps/yazi.nix
-    ./apps/fish.nix
-    ./apps/spellcheck/spellcheck.nix
-    ./apps/libreWolf.nix
-    ./stylix.nix
-    ./fonts.nix
+    ./apps/main.nix
+    ./spellcheck/spellcheck.nix
   ];
   options = {
     machines.pc.enable = lib.mkEnableOption "";

@@ -1,18 +1,8 @@
 {...}: {
   imports = [
-    ./recording.nix
-    ./ssdmTheme.nix
-    ./packages/main.nix
+    ./langs/main.nix
     ./system/main.nix
-    ./docker.nix
-    ./essentials.nix
-    ./flatpak.nix
-    ./keyboardFlashing.nix
-    ./steam.nix
-    ./stylix.nix
-    ./terminalEnhancements.nix
-    ./vm.nix
-    ./xdg_mime.nix
-    ./fonts.nix
+    ./fonts/fontsImport.nix
+    ./general/main.nix
   ];
 }

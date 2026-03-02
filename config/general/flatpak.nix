@@ -5,7 +5,7 @@
   ...
 }: {
   options = {
-    nixConf.flatpak.enable = lib.mkEnableOption "enables flatpak support";
+    nixConf.flatpak.enable = lib.mkEnableOption "";
     nixConf.flatpak.packages = lib.mkOption {
       type = lib.types.listOf lib.types.str;
       default = [];
