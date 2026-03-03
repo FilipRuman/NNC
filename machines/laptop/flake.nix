@@ -8,6 +8,7 @@
     home.url = "path:./../../home";
     home-manager.url = "github:nix-community/home-manager";
     nvf.url = "path:./../../nvf";
+    steam.url = "path:./../../steam";
   };
 
   outputs = inputs: {
@@ -18,6 +19,7 @@
         inputs.stylix.nixosModules.stylix
         inputs.home.f
         inputs.nvf.module
+        inputs.steam.module
         ./../../config/main.nix
       ];
 
@@ -29,7 +31,6 @@
         docker.enable = false;
         essentials.enable = true;
         keyboardFlashing.enable = true;
-        steam.enable = true;
         stylix.enable = true;
         terminalEnhancements.enable = true;
         vm.enable = false;
