@@ -22,5 +22,5 @@ bash ; export host=<desktop/laptop/server>
 2. install eaverything:
 
 ```bash
-nix-shell -p wget git --run 'wget -O /tmp/NNCinstall.sh https://raw.githubusercontent.com/FilipRuman/NNC/refs/heads/main/installation/install.sh; sudo chmod +x /tmp/NNCinstall.sh; sudo bash /tmp/NNCinstall.sh'
+nix-shell -p wget git --run 'wget -O /tmp/NNCinstall.sh https://raw.githubusercontent.com/FilipRuman/NNC/refs/heads/main/installation/install.sh; sudo chmod +x /tmp/NNCinstall.sh; sudo -sE /tmp/NNCinstall.sh'
 ```
