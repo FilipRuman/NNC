@@ -54,14 +54,14 @@
         #grub
       ];
     };
-    programs.flatpak.packages = [
-      "io.ente.auth"
-      "com.brave.Browser"
-      "com.discordapp.Discord"
-      "org.gimp.GIMP"
-    ];
 
     nixosModules.desktop = {pkgs, ...}: {
+      flatpak.packages = [
+        "io.ente.auth"
+        "com.brave.Browser"
+        "com.discordapp.Discord"
+        "org.gimp.GIMP"
+      ];
       imports = [
         inputs.home-manager.nixosModules.default
       ];
