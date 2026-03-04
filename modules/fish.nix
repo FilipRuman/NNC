@@ -1,7 +1,6 @@
 {
   flake.homeModules.generic = {
     programs = {
-      riewr.enable = "";
       fish = {
         enable = true;
         shellAliases = {
@@ -56,6 +55,10 @@
           vm = "~/vms/run.sh";
           nixCargo = "nix-shell --run 'cargo run'";
         };
+      };
+      yazi = {
+        shellWrapperName = "y";
+        enable = true;
       };
 
       starship.enable = true;

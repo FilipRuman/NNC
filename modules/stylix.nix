@@ -6,7 +6,7 @@
   in {
     imports = [inputs.stylix.nixosModules.stylix];
     stylix = {
-      enable = true;
+      enable = false;
       # base16Scheme = "${pkgs.base16-schemes}/share/themes/ayu-dark.yaml";
       # base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night.yaml";
       base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyodark-terminal.yaml";

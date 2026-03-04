@@ -1,5 +1,5 @@
 {
-  flake.modules.homeManager.general = {
+  flake.homeModules.general = {
     services.dunst.enable = true;
     services.dunst.settings = {
       global = {

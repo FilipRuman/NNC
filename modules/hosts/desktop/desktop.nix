@@ -67,10 +67,9 @@
       ];
 
       home-manager.users.f = {
-        imports = [
-          self.homeModules.generic
-          self.modules.homeManager.desktop
-          self.modules.homeManager.general
+        imports = with self.homeModules; [
+          desktop
+          general
         ];
         home = {
           stateVersion = "25.11";
@@ -78,6 +77,8 @@
           homeDirectory = "/home/f";
         };
       };
+      home-manager.backupFileExtension = "home-managebak";
+
       environment.systemPackages = with pkgs; [
         unityhub
         blender

@@ -1,5 +1,5 @@
 {
-  flake.modules.homeManager.laptop = {
+  flake.homeModules.laptop = {
     programs.hyprlock.enable = true;
     programs.hyprlock.settings = {
       general = {
