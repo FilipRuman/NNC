@@ -54,22 +54,31 @@
         #grub
       ];
     };
-    programs.flatpak.packages = [
-      "io.ente.auth"
-      "com.brave.Browser"
-      "com.discordapp.Discord"
-      "org.gimp.GIMP"
-    ];
-
-    homeConfigurations.f = {self, ...}:
-      inputs.home-manager.lib.homeManagerConfiguration {
-        modules = with self.homeModules; [generic desktop];
-        home.username = "f";
-        home.homeDirectory = "/home/f";
-        backupFileExtension = "home-managebak";
-      };
 
     nixosModules.laptop = {pkgs, ...}: {
+      flatpak.packages = [
+        "io.ente.auth"
+        "com.brave.Browser"
+        "com.discordapp.Discord"
+        "org.gimp.GIMP"
+      ];
+      imports = [
+        inputs.home-manager.nixosModules.default
+      ];
+
+      home-manager.users.f = {
+        imports = with self.homeModules; [
+          laptop
+          general
+        ];
+        home = {
+          stateVersion = "25.11";
+          username = "f";
+          homeDirectory = "/home/f";
+        };
+      };
+      home-manager.backupFileExtension = "home-managebak";
+
       environment.systemPackages = with pkgs; [
         unityhub
         blender
