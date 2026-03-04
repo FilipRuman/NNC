@@ -4,14 +4,15 @@
       fish = {
         enable = true;
         shellAliases = {
+          readHost = "sudo set host (cat /etc/nixos/host.txt)";
           addToDict = "nim r /etc/nixos/NNC/utils/addToDict.nim";
           q = "qalc -c -i";
           helium = "nix run github:AlvaroParker/helium-nix";
           zen = "nix run github:youwen5/zen-browser-flake";
           machineFlakeUpd = "sudo nix flake update";
           onUpdate = "sudo /etc/nixos/onUpdate.sh";
-          rebuild = "cd /etc/nixos/; machineFlakeUpd ; sudo nixos-rebuild switch --upgrade --flake /etc/nixos/";
-          updateNix = "cd /etc/nixos/NNC/; git pull ; cd .. ; sudo nix flake update ; rebuild ; flatpak update -y ; onUpdate ; nix profile upgrade ' * '; cleanup";
+          rebuild = "cd /etc/nixos/NNC/; machineFlakeUpd ; sudo nix run .#write-flake ; sudo nixos-rebuild switch --upgrade --flake .#$host";
+          updateNix = "cd /etc/nixos/NNC/; git pull ; rebuild ; flatpak update -y ; onUpdate ; nix profile upgrade ' * '; cleanup";
           config = "ne /etc/nixos/NNC";
           configSystem = "sudo -E -s nvim /etc/nixos/flake.nix";
           bashrc = "sudo -E -s nvim ~/.bashrc";

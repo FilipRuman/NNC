@@ -15,11 +15,21 @@
       url = "github:nix-community/home-manager";
     };
     import-tree.url = "github:vic/import-tree";
+    nix-flatpak.url = "github:gmodena/nix-flatpak";
     nixpkgs.url = "https://channels.nixos.org/nixpkgs-unstable/nixexprs.tar.xz";
     nixpkgs-lib.follows = "nixpkgs";
     nvf = {
       inputs.nixpkgs.follows = "nixpkgs";
       url = "github:NotAShelf/nvf";
+    };
+    steam-config-nix = {
+      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:different-name/steam-config-nix";
+    };
+    stylix.url = "github:danth/stylix";
+    zen-browser = {
+      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:youwen5/zen-browser-flake";
     };
   };
 

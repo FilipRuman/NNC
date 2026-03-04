@@ -43,7 +43,7 @@
         keyboardFlashing
         recording
         stylix
-        terminalEnchancements
+        terminalEnhancements
         vm
 
         fUser

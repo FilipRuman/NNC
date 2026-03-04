@@ -1,13 +1,9 @@
-{
+{inputs, ...}: {
   flake-file.inputs.steam-config-nix = {
     url = "github:different-name/steam-config-nix";
     inputs.nixpkgs.follows = "nixpkgs";
   };
-  flake.nixosModules.steam = {
-    inputs,
-    pkgs,
-    ...
-  }: {
+  flake.nixosModules.steam = {pkgs, ...}: {
     imports = [inputs.steam-config-nix.nixosModules.default];
 
     programs = {
