@@ -6,6 +6,7 @@
       gparted
       firefox
       feishin
+      ghostty
     ];
   };
 }

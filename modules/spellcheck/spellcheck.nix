@@ -1,5 +1,5 @@
 {
-  flake.homeModules.general = {lib, ...}: let
+  flake.modules.homeManager.general = {lib, ...}: let
     words = [
       "polkit"
       "grimblast"

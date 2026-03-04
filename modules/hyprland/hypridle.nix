@@ -1,5 +1,5 @@
 {
-  flake.homeModules.generic = {
+  flake.modules.homeManager.general = {
     services.hypridle.enable = true;
     services.hypridle.settings = {
       general = {

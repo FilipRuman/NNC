@@ -1,5 +1,5 @@
 {
-  flake.homeModules.generic = {
+  flake.modules.homeManager.general = {
     programs.waybar.style = ''
       @define-color white #A0A8CD;
       @define-color bar-bg #1a1b26;

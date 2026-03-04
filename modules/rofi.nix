@@ -1,5 +1,5 @@
 {
-  flake.homeModules.general = {
+  flake.modules.homeManager.general = {
     xdg.configFile = {
       "rofi/config.rasi".text = ''
         configuration {

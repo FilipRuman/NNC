@@ -1,5 +1,5 @@
 {
-  flake.homeModules.generic = {
+  flake.modules.homeManager.general = {
     wayland.windowManager.hyprland.enable = true;
     services.hyprpolkitagent.enable = true;
     wayland.windowManager.hyprland.settings = {

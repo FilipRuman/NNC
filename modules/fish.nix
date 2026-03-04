@@ -1,6 +1,7 @@
 {
-  flake.homeModules.general = {
+  flake.homeModules.generic = {
     programs = {
+      riewr.enable = "";
       fish = {
         enable = true;
         shellAliases = {

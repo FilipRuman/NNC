@@ -1,5 +1,5 @@
 {
-  flake.homeModules.desktop = {
+  flake.modules.homeManager.desktop = {
     programs = {
       hyprlock = {
         enable = true;
