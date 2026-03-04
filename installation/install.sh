@@ -6,7 +6,4 @@ cd /etc/nixos || exit
 # touch onUpdate.sh
 # sudo chmod +x onUpdate.sh
 # sudo git clone https://github.com/FilipRuman/NNC.git
-
-cat <<EOF
-$host
-EOF
+sudo echo "$host" >./host.txt
