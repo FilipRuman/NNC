@@ -61,15 +61,22 @@
       "org.gimp.GIMP"
     ];
 
-    homeConfigurations.f = {self, ...}:
-      inputs.home-manager.lib.homeManagerConfiguration {
-        modules = with self.homeModules; [generic desktop];
-        home.username = "f";
-        home.homeDirectory = "/home/f";
-        backupFileExtension = "home-managebak";
-      };
+    homeConfigurations.f = inputs.home-manager.lib.homeManagerConfiguration {
+      modules = [
+        {
+          home.username = "f";
+          home.homeDirectory = "/home/f";
+          backupFileExtension = "home-managebak";
+        }
+        self.homeModules.generic
+        self.homeModules.desktop
+      ];
+    };
 
     nixosModules.desktop = {pkgs, ...}: {
+      # imports = [
+      #   inputs.home-manager.nixosModules.default
+      # ];
       environment.systemPackages = with pkgs; [
         unityhub
         blender
