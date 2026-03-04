@@ -13,7 +13,7 @@
           onUpdate = "sudo /etc/nixos/onUpdate.sh";
           rebuild = "readHost ; cd /etc/nixos/NNC/ ; sudo nix run .#write-flake ; sudo nixos-rebuild switch --upgrade --flake .#$host";
           updateNix = "cd /etc/nixos/NNC/; git pull ; rebuild ; sudo nix flake update ; flatpak update -y ; onUpdate ; nix profile upgrade ' * '; cleanup";
-          config = "ne /etc/nixos/NNC";
+          config = "ne /etc/nixos/NNC/modules";
           configSystem = "sudo -E -s nvim /etc/nixos/flake.nix";
           bashrc = "sudo -E -s nvim ~/.bashrc";
           configFish = "sudo -E -s nvim ~/.config/fish/config.fish";

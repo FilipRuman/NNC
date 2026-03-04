@@ -5,7 +5,7 @@
       cp /etc/nixos/NNC/fonts/fontFiles/*.{ttf,otf} $out/share/fonts/ || true
     '';
   in {
-    fonts.fonts = [
+    fonts.packages = [
       myLocalFonts
     ];
   };

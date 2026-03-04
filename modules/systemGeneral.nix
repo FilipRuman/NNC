@@ -2,6 +2,8 @@
   flake.nixosModules.systemGeneral = {pkgs, ...}: {
     # Idk where else to put it
     nixpkgs.config.allowUnfree = true;
+
+    time.timeZone = "Europe/Warsaw";
     boot.kernelPackages = pkgs.linuxPackages_zen; # Should be stabler and better for gaming
     security.sudo.wheelNeedsPassword = false;
     services.gnome.gnome-keyring.enable = true;
