@@ -16,7 +16,7 @@ script you want to install\
 1. set what host you want to use
 
 ```bash
-host=<desktop/laptop/server>
+export host=<desktop/laptop/server>
 ```
 
 2. install eaverything:
