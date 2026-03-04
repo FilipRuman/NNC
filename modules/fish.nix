@@ -1,5 +1,5 @@
 {
-  flake.homeModules.generic = {
+  flake.homeModules.general = {
     programs = {
       fish = {
         enable = true;
@@ -55,10 +55,6 @@
           vm = "~/vms/run.sh";
           nixCargo = "nix-shell --run 'cargo run'";
         };
-      };
-      yazi = {
-        shellWrapperName = "y";
-        enable = true;
       };
 
       starship.enable = true;

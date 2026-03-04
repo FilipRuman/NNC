@@ -6,7 +6,7 @@
   in {
     imports = [inputs.stylix.nixosModules.stylix];
     stylix = {
-      enable = false;
+      enable = true;
       # base16Scheme = "${pkgs.base16-schemes}/share/themes/ayu-dark.yaml";
       # base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night.yaml";
       base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyodark-terminal.yaml";
@@ -45,7 +45,7 @@
     };
   };
 
-  flake.homeModules.generic = {
+  flake.homeModules.general = {
     stylix.targets = {
       dunst.enable = false;
       hyprlock.enable = false;

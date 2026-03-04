@@ -1,5 +1,5 @@
 {
-  flake.homeModules.generic = {lib, ...}: {
+  flake.homeModules.general = {lib, ...}: {
     programs.ghostty.enable = true;
     programs.ghostty.settings = lib.mkForce {
       "background-opacity" = 0.9;
