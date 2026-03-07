@@ -56,7 +56,7 @@
     };
 
     nixosModules.laptop = {pkgs, ...}: {
-      flatpak.packages = [
+      services.flatpak.packages = [
         "io.ente.auth"
         "com.brave.Browser"
         "com.discordapp.Discord"

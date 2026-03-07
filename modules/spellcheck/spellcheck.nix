@@ -1,6 +1,17 @@
 {
   flake.homeModules.general = {lib, ...}: let
     words = [
+    "lsp"
+    "nvf"
+    "flatpak"
+    "Flatpak"
+    "OS"
+    "NVIDIA"
+    "Vimjoyer"
+    "Dendritic"
+    "config"
+    "dendritic"
+    "yt"
       "polkit"
       "grimblast"
       "Multimesh"

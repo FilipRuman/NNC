@@ -5,6 +5,7 @@
         enable = true;
         shellAliases = {
           bsudo = "sudo -sE";
+          pages = "ne ~/git/pages/src/content/docs/";
           readHost = "set -g host (cat /etc/nixos/host.txt)";
           addToDict = "nim r /etc/nixos/NNC/utils/addToDict.nim";
           q = "qalc -c -i";
@@ -22,7 +23,7 @@
           ne = "neovide";
           rem_vim = "nix run --refresh github:FilipRuman/NNC?dir=nvf/selfcontained";
           sudoNvim = "sudo -E -s nvim";
-          cleanup = "sudo nix-collect-garbage --delete-older-than 3d";
+          cleanup = "sudo nix-collect-garbage --delete-older-than 14d";
           cleanupAll = "sudo nix-collect-garbage -d";
           godot = "steam-run ~/Documents/godot/godot.x86_64";
           tauriRun = "sudo npm run tauri dev";
