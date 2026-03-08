@@ -1,10 +1,11 @@
 {
   flake.nixosModules.hyprland = {pkgs, ...}: {
     environment.systemPackages = with pkgs; [
-      rofi
+      wofi
       hyprlock
       hypridle
       dunst
+      hyprpanel
       swaybg
       waypaper
       xdg-desktop-portal

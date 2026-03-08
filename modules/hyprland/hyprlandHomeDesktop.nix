@@ -113,7 +113,6 @@
         accel_profile = "flat";
       };
       monitor = [
-        "DP-1, 1920x1080@144, 0x0, 1"
         "DP-4, 3840x2160@165, 0x0, 1.5, bitdepth, 10, cm, hdr"
       ];
     };

@@ -10,13 +10,13 @@
         spacing = 3;
         fixed-center = true;
         ipc = true;
-        margin-top = 6;
+        margin-top = 3;
         margin-left = 8;
         margin-right = 8;
 
-        modules-left = ["hyprland/window" "battery"];
-        modules-center = ["custom/spotify" "hyprland/workspaces"];
-        modules-right = ["custom/updater" "memory" "disk" "network" "pulseaudio" "backlight" "clock" "tray"];
+        modules-left = ["tray" "memory" "disk" "battery"];
+        modules-center = [];
+        modules-right = ["network" "pulseaudio" "backlight" "clock"];
 
         "custom/notification" = {
           tooltip = false;
@@ -36,40 +36,6 @@
           exec = "swaync-client -swb";
           on-click-right = "sleep 0.1 && swaync-client -d -sw";
           escape = true;
-        };
-
-        "hyprland/window" = {
-          format = "{}";
-          max-length = 35;
-          separate-outputs = true;
-        };
-
-        "hyprland/workspaces" = {
-          format = "{icon}";
-          show-special = false;
-          on-click = "activate";
-          all-outputs = true;
-          sort-by-number = true;
-          format-icons = {
-            "1" = "  ";
-            "2" = "  ";
-            "3" = "  ";
-            "4" = "  ";
-            "5" = "  ";
-            "6" = "  ";
-            "7" = "  ";
-            "8" = " 󰓇 ";
-            "9" = " 󰙯 ";
-            "10" = "  ";
-            "active" = "  ";
-            "urgent" = " ";
-          };
-
-          persistent-workspaces = {
-            "*" = [1 2 3 4 5];
-          };
-          on-scroll-up = "hyprctl dispatch workspace e+1";
-          on-scroll-down = "hyprctl dispatch workspace e-1";
         };
 
         network = {
@@ -179,14 +145,6 @@
           on-click-backward = "tz_down";
           on-scroll-up = "shift_up";
           on-scroll-down = "shift_down";
-        };
-
-        idle_inhibitor = {
-          format = "{icon}";
-          format-icons = {
-            activated = " ";
-            deactivated = " ";
-          };
         };
 
         tray = {

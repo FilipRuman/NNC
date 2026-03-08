@@ -11,8 +11,8 @@
       # base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night.yaml";
       base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyodark-terminal.yaml";
 
-      cursor.size = 16;
       cursor = {
+        size = 16;
         package = pkgs.bibata-cursors;
         name = "Bibata-Modern-Classic";
       };
@@ -41,6 +41,10 @@
           package = fonts.emojiPkg;
           name = fonts.emojiName;
         };
+      };
+      opacity = {
+        desktop = 0.5;
+        terminal = 0.5;
       };
     };
   };

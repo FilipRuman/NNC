@@ -7,56 +7,31 @@
         no_hardware_cursors = true;
         no_warps = false;
       };
-      "$mod" = "Super";
-
-      "$terminal" = "ghostty";
-      "$menu" = "rofi";
-
-      input = {
-        kb_layout = "pl";
-      };
-
-      xwayland = {
-        force_zero_scaling = true;
-      };
-
+      input.kb_layout = "pl";
+      xwayland.force_zero_scaling = true;
       exec-once = [
-        "flatpak run app.zen_browser.zen"
-        #"flatpak run com.discordapp.Discord"
-        "kwalletmanager5"
         "Hypridle"
         "waybar"
-        "wl-paste --type text --watch cliphist store"
         "waypaper --random"
-        "nextcloud"
-        #"signal-desktop"
-        # "thunderbird"
-        "flatpak update"
-        "updateNix"
       ];
 
       bindm = [
-        "$mod, mouse:272, movewindow"
-        "$mod, mouse:273, resizewindow"
+        "Super, mouse:272, movewindow"
+        "Super, mouse:273, resizewindow"
       ];
+      # stylix modifies the qt theme by the qtct by default
       env = [
         "QT_QPA_PLATFORMTHEME,qt6ct"
       ];
       general = {
         gaps_in = 3;
         gaps_out = 3;
-
         border_size = 2;
-
-        # "col.active_border" = "rgba(ff9e64ff) rgba(9ece6aff) 45deg";
-        # "col.inactive_border" = "rgba(3c3836ff)";
-
         resize_on_border = true;
-
         allow_tearing = false;
         layout = "master";
       };
-      # Audio playback
+      # Handle some multimedia key inputs
       bindel = [
         ", XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
         ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
@@ -70,23 +45,15 @@
       ];
       decoration = {
         rounding = 2;
-
         active_opacity = 1.0;
         inactive_opacity = 0.9;
-
-        shadow = {
-          enabled = true;
-        };
-
-        blur = {
-          enabled = true;
-        };
+        shadow.enabled = true;
+        blur.enabled = true;
       };
+
       animations = {
         enabled = true;
-
         bezier = "ease,0.4,0.02,0.21,1";
-
         animation = [
           "windows, 1, 3.5, ease, slide"
           "windowsOut, 1, 3.5, ease, slide"
@@ -95,63 +62,46 @@
           "workspaces, 1, 0.5, ease"
         ];
       };
-      # "$mod, Z, exec, flatpak run app.zen_browser.zen"
-      bind =
-        [
-          "$mod, Space, togglefloating,"
-          "$mod SHIFT Control_L, Q, exit,"
-          "$mod SHIFT, C, killactive,"
-          "Super Control_L, E, exec,shutdown now"
-          "Super Control_L, S, exec,systemctl suspend"
-          "$mod SHIFT Control_L, R, exec, reboot"
+      bind = [
+        "Super, Space, togglefloating,"
+        "Super SHIFT Control_L, Q, exit,"
+        "Super SHIFT, C, killactive,"
+        "Super Control_L, E, exec,shutdown now"
+        "Super Control_L, S, exec,systemctl suspend"
+        "Super SHIFT Control_L, R, exec, reboot"
 
-          "$mod, G, exec, ghostty"
-          "$mod, M, exec, krusader"
-          "$mod, H, exec, $menu -show drun"
-          "$mod, X, exec, hyprlock"
-          "$mod, T, exec, /etc/nixos/NNC/utils/record/start.bash"
-          "$mod SHIFT, T, exec, /etc/nixos/NNC/utils/record/end.bash"
-          "$mod, O, exec, grimblast -n copy area"
-          "Super Control_L, O, exec, grimblast -n edit area"
+        "Super, G, exec, ghostty"
+        "Super, H, exec, rofi -show drun"
+        "Super, X, exec, hyprlock"
+        "Super, T, exec, /etc/nixos/NNC/utils/record/start.bash"
+        "Super SHIFT, T, exec, /etc/nixos/NNC/utils/record/end.bash"
+        "Super, O, exec, grimblast -n copy area"
+        "Super Control_L, O, exec, grimblast -n edit area"
+        ", Print, exec, grimblast copy area"
 
-          "Super , R, fullscreen,"
-          "$mod, A, movetoworkspacesilent, 9"
+        "Super , R, fullscreen,"
 
-          ", Print, exec, grimblast copy area"
+        "Super, A , workspace, 0"
+        "Super SHIFT, A, movetoworkspace, 0"
 
-          # Move focus
-          "Super , Tab, cyclenext,"
-          "Super , Tab, bringactivetotop,"
+        "Super, s , workspace, 1"
+        "Super SHIFT, s, movetoworkspace, 1"
 
-          "$mod, s , workspace, 1"
-          "$mod SHIFT, s, movetoworkspace, 1"
+        "Super, d , workspace, 2"
+        "Super SHIFT, d, movetoworkspace, 2"
 
-          "$mod, d , workspace, 2"
-          "$mod SHIFT, d, movetoworkspace, 2"
+        "Super, f , workspace, 3"
+        "Super SHIFT, f, movetoworkspace, 3"
 
-          "$mod, f , workspace, 3"
-          "$mod SHIFT, f, movetoworkspace, 3"
+        "Super,  j , workspace, 4"
+        "Super SHIFT, j , movetoworkspace, 4"
 
-          "$mod,  j , workspace, 4"
-          "$mod SHIFT, j , movetoworkspace, 4"
+        "Super, k , workspace, 5"
+        "Super SHIFT, k , movetoworkspace, 5"
 
-          "$mod, k , workspace, 5"
-          "$mod SHIFT, k , movetoworkspace, 5"
-
-          "$mod, l , workspace, 9"
-          "$mod SHIFT, l , movetoworkspace, 9"
-        ]
-        ++ (
-          # workspaces
-          # binds $mod + [shift +] {1..9} to [move to] workspace {1..9}
-          builtins.concatLists (builtins.genList (
-              i: let
-                ws = i + 1;
-              in [
-              ]
-            )
-            9)
-        );
+        "Super, l , workspace, 9"
+        "Super SHIFT, l , movetoworkspace, 9"
+      ];
     };
   };
 }
