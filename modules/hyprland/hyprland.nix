@@ -4,7 +4,7 @@
       wofi
       hyprlock
       hypridle
-      dunst
+      # dunst
       hyprpanel
       swaybg
       waypaper
