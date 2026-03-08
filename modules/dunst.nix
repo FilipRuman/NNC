@@ -1,6 +1,6 @@
 {
   flake.homeModules.general = {
-    services.dunst.enable = true;
+    services.dunst.enable = false;
     services.dunst.settings = {
       global = {
         frame_color = "#cad3f5";

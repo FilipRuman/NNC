@@ -11,7 +11,7 @@
       xwayland.force_zero_scaling = true;
       exec-once = [
         "Hypridle"
-        "waybar"
+        "hyprpanel"
         "waypaper --random"
       ];
 
