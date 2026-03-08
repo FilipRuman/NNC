@@ -81,26 +81,26 @@
 
         "Super , R, fullscreen,"
 
-        "Super, A , workspace, 0"
-        "Super SHIFT, A, movetoworkspace, 0"
+        "Super, a , workspace, 1"
+        "Super SHIFT, a, movetoworkspace, 1"
 
-        "Super, s , workspace, 1"
-        "Super SHIFT, s, movetoworkspace, 1"
+        "Super, s , workspace, 2"
+        "Super SHIFT, s, movetoworkspace, 2"
 
-        "Super, d , workspace, 2"
-        "Super SHIFT, d, movetoworkspace, 2"
+        "Super, d , workspace, 3"
+        "Super SHIFT, d, movetoworkspace, 3"
 
-        "Super, f , workspace, 3"
-        "Super SHIFT, f, movetoworkspace, 3"
+        "Super, f , workspace, 4"
+        "Super SHIFT, f, movetoworkspace, 4"
 
-        "Super,  j , workspace, 4"
-        "Super SHIFT, j , movetoworkspace, 4"
+        "Super,  j , workspace, 5"
+        "Super SHIFT, j , movetoworkspace, 5"
 
-        "Super, k , workspace, 5"
-        "Super SHIFT, k , movetoworkspace, 5"
+        "Super, k , workspace, 6"
+        "Super SHIFT, k , movetoworkspace, 6"
 
-        "Super, l , workspace, 9"
-        "Super SHIFT, l , movetoworkspace, 9"
+        "Super, l , workspace, 7"
+        "Super SHIFT, l , movetoworkspace, 7"
       ];
     };
   };
