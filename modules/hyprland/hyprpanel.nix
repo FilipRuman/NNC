@@ -3,12 +3,14 @@
     programs.hyprpanel = {
       enable = true;
       settings = {
+        terminal = "ghostty";
         menus = {
           clock.time.military = false;
           clock.time.hideSeconds = true;
           power.lowBatteryNotification = true;
         };
         bar = {
+          launcher.icon = "";
           battery.hideLabelWhenFull = true;
           clock.showTime = true;
           clock.format = "%m %d  %H:%M";
