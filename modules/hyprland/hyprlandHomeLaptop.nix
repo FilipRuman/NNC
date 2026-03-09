@@ -1,7 +1,7 @@
 {
   flake.homeModules.laptop = {
-    programs.hyprlock.enable = true;
     programs.hyprlock.settings = {
+      enable = true;
       general = {
         disable_loading_bar = true;
         hide_cursor = true;

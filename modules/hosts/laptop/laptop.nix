@@ -60,7 +60,6 @@
         "io.ente.auth"
         "com.brave.Browser"
         "com.discordapp.Discord"
-        "org.gimp.GIMP"
       ];
       imports = [
         inputs.home-manager.nixosModules.default

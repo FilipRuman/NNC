@@ -1,6 +1,9 @@
 {
   flake.homeModules.general = {lib, ...}: let
     words = [
+    "waybar"
+    "hyprpanel"
+    "stylix"
     "lsp"
     "nvf"
     "flatpak"
