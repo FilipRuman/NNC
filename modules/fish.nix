@@ -5,7 +5,7 @@
         enable = true;
         shellAliases = {
           bsudo = "sudo -sE";
-          pages = "ne ~/git/pages/src/content/docs/";
+          pages = "z ~/git/pages/src/content/docs/";
           readHost = "set -g host (cat /etc/nixos/host.txt)";
           addToDict = "nim r /etc/nixos/NNC/utils/addToDict.nim";
           q = "qalc -c -i";
