@@ -1,21 +1,27 @@
 {
   flake.homeModules.general = {lib, ...}: let
     words = [
-    "IO"
-    "waybar"
-    "hyprpanel"
-    "stylix"
-    "lsp"
-    "nvf"
-    "flatpak"
-    "Flatpak"
-    "OS"
-    "NVIDIA"
-    "Vimjoyer"
-    "Dendritic"
-    "config"
-    "dendritic"
-    "yt"
+    "passthrough"
+    "Passthrough"
+      "dendritic"
+      "sddm"
+      "flathub"
+      "Flatpak"
+      "IO"
+      "waybar"
+      "hyprpanel"
+      "stylix"
+      "lsp"
+      "nvf"
+      "flatpak"
+      "Flatpak"
+      "OS"
+      "NVIDIA"
+      "Vimjoyer"
+      "Dendritic"
+      "config"
+      "dendritic"
+      "yt"
       "polkit"
       "grimblast"
       "Multimesh"
@@ -81,7 +87,7 @@
       + "]\n";
   in {
     xdg.configFile = {
-      "harper/custom.dict".text =
+      "harper-ls/custom.dict".text =
         lib.concatStringsSep "\n" words + "\n";
       "codebook/codebook.toml".text =
         wordsToml + builtins.readFile ./codebook.toml;
