@@ -32,7 +32,10 @@
         enable = true;
         extensions.crates-nvim.enable = true;
       };
-      assembly.enable = true;
+      assembly = {
+        enable = true;
+        lsp.enable = true;
+      };
       astro.enable = true;
       csharp = {
         enable = true;

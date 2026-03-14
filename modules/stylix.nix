@@ -50,6 +50,8 @@
   };
 
   flake.homeModules.general = {
+    gtk.enable = true;
+    qt.enable = true;
     stylix.targets = {
       dunst.enable = false;
       hyprlock.enable = false;

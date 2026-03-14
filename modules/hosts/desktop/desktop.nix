@@ -22,6 +22,7 @@
         rust
         c
         js
+        asm
 
         desktop
         hyprland
