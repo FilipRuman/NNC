@@ -7,7 +7,8 @@
           bsudo = "sudo -sE";
           pages = "z ~/git/pages/src/content/docs/";
           readHost = "set -g host (cat /etc/nixos/host.txt)";
-          addToDict = "nim r /etc/nixos/NNC/utils/addToDict.nim";
+          addToDict = " nim r --hints:off /etc/nixos/NNC/utils/addToDict.nim";
+          todo = "nim r --hints:off /etc/nixos/NNC/utils/todo/todo.nim";
           q = "qalc -c -i";
           helium = "nix run github:AlvaroParker/helium-nix";
           zen = "nix run github:youwen5/zen-browser-flake";
