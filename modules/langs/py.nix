@@ -1,7 +1,7 @@
 {
-  flake.nixosModules.js = {pkgs, ...}: {
+  flake.nixosModules.py = {pkgs, ...}: {
     environment.systemPackages = with pkgs; [
-      yarn
+      python3
     ];
   };
 }

@@ -21,7 +21,7 @@
         nim
         rust
         c
-        # js
+        js
         asm
 
         desktop

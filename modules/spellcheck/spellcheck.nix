@@ -1,6 +1,7 @@
 {
   flake.homeModules.general = {lib, ...}: let
     words = [
+    "bitangent"
     "passthrough"
     "Passthrough"
       "dendritic"
