@@ -45,7 +45,7 @@
 
       # Language modules that are not as common.
       ts.enable = false;
-      ocaml.enable = false;
+      ocaml.enable = true;
     };
   };
 }
