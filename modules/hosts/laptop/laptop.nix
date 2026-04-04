@@ -22,6 +22,7 @@
         rust
         c
         js
+        ocaml
 
         laptop
         hyprland

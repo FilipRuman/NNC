@@ -11,6 +11,12 @@ type
                 date: string
                 contents: string
 
+        ArgumentsParsed = object
+                commandName: string
+                title: string
+                date: string
+                contents: string
+
 proc get_todo_paths(): seq[string] =
         createDir(mainDirectoryPath)
 
@@ -57,17 +63,41 @@ proc parse_file(path: string): ParsedFile =
                                 continue
 
                 inc(i)
+proc help() =
+        let help_contents = readFile("/etc/nixos/NNC/utils/todo/help.md")
+        echo help_contents
+
+
+proc parse_argumets(): ArgumentsParsed =
+
+        result.commandName = paramStr(1)
+        var currentArgumentType = "";
+        for i in 2..paramCount():
+                let content = paramStr(i)
+                if content.startsWith('-'):
+                        currentArgumentType = content
+                        continue
+                case currentArgumentType:
+                of "-d", "--date": result.date = content
+                else:
+                        echo fmt"{currentArgumentType} is not a valid argument type"
 
 
 
+proc main() =
+        if paramCount() < 2:
+                help()
 
-let paths = get_todo_paths()
+        let arguments = parse_argumets()
 
-echo "parsed files:"
 
-for path in paths:
-        let parsed = parse_file(path)
-        echo "  ", parsed.date, " -> ", parsed.title
+main()
+
+# let paths = get_todo_paths()
+# echo "parsed files:"
+# for path in paths:
+#         let parsed = parse_file(path)
+#         echo "  ", parsed.date, " -> ", parsed.title
 
 
 # let dt = parse("2026-04-02 14:30:00", "yyyy-MM-dd HH:mm:ss")
@@ -77,6 +107,5 @@ for path in paths:
 #
 # echo "Number of arguments: ", paramCount()
 #
-# # paramStr(0) is the program name
 # for i in 1..paramCount():
 #   echo "Arg ", i, ": ", paramStr(i)

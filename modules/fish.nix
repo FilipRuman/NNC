@@ -13,7 +13,7 @@
           helium = "nix run github:AlvaroParker/helium-nix";
           zen = "nix run github:youwen5/zen-browser-flake";
           onUpdate = "sudo /etc/nixos/onUpdate.sh";
-          rebuild = "readHost ; cd /etc/nixos/NNC/ ; sudo nix run .#write-flake ; sudo nixos-rebuild switch --upgrade --flake .#$host";
+          rebuild = "readHost ; cd /etc/nixos/NNC/ ; git add '*'; sudo nix run .#write-flake ; sudo nixos-rebuild switch --upgrade --flake .#$host";
           updateNix = "cd /etc/nixos/NNC/; git pull ; rebuild ; sudo nix flake update ; flatpak update -y ; onUpdate ; nix profile upgrade ' * '; cleanup";
           config = "ne /etc/nixos/NNC/modules";
           configSystem = "sudo -E -s nvim /etc/nixos/flake.nix";

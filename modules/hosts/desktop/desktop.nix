@@ -23,6 +23,7 @@
         c
         js
         asm
+        ocaml
 
         desktop
         hyprland
