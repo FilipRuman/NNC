@@ -9,6 +9,7 @@
           readHost = "set -g host (cat /etc/nixos/host.txt)";
           addToDict = " nim r --hints:off /etc/nixos/NNC/utils/addToDict.nim";
           todo = "nim r --hints:off /etc/nixos/NNC/utils/todo/todo.nim";
+          orun = "set -x OCAMLRUNPARAM b; dune build; dune exec";
           q = "qalc -c -i";
           helium = "nix run github:AlvaroParker/helium-nix";
           zen = "nix run github:youwen5/zen-browser-flake";

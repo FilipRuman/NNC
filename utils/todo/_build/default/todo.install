@@ -1,0 +1,8 @@
+lib: [
+  "_build/install/default/lib/todo/META"
+  "_build/install/default/lib/todo/dune-package"
+  "_build/install/default/lib/todo/opam"
+]
+bin: [
+  "_build/install/default/bin/todo"
+]
