@@ -5,7 +5,10 @@ let handle_command
     ( (parsed_arguments : Arguments.parsed_arguments),
       (parsed_config : Config.parsed_config) ) =
   match parsed_arguments.command with
-  | Arguments.Show -> Show.handle_show_command parsed_arguments
+  | Arguments.Show -> Show.handle_show_command parsed_arguments parsed_config
+  | Arguments.Remove ->
+      Show.handle_remove_command parsed_arguments parsed_config
+  | Arguments.Done -> Show.handle_done_command parsed_arguments parsed_config
   | Arguments.Help -> Help.print_help ()
   | Arguments.Create ->
       Create.handle_create_command (parsed_arguments, parsed_config)

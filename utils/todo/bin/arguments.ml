@@ -1,4 +1,4 @@
-type command_type = Show | Help | Create
+type command_type = Show | Help | Create | Remove | Done
 
 type parsed_arguments = {
   command : command_type;
@@ -6,6 +6,7 @@ type parsed_arguments = {
   path : string option;
   title : string option;
   contents : string option;
+  is_done : bool;
   open_file : bool;
 }
 
@@ -17,6 +18,8 @@ let parse_command_type () =
     | "show" | "Show" -> Ok Show
     | "help" | "Help" -> Ok Help
     | "create" | "Create" -> Ok Create
+    | "remove" | "Remove" -> Ok Remove
+    | "done" | "Done" -> Ok Done
     | _ ->
         Error
           (Printf.sprintf "Command type name is incorrect: '%s'"
@@ -32,6 +35,11 @@ let rec recursively_parse_arguments
     match arg with
     | "-o" | "--open" ->
         let output_data = { output_data with open_file = true } in
+        if next_index < Array.length Sys.argv then
+          recursively_parse_arguments (next_index, argument_type, output_data)
+        else output_data
+    | "--done" ->
+        let output_data = { output_data with is_done = true } in
         if next_index < Array.length Sys.argv then
           recursively_parse_arguments (next_index, argument_type, output_data)
         else output_data
@@ -71,6 +79,7 @@ let handle_parsing_arguments () =
           title = None;
           contents = None;
           open_file = false;
+          is_done = false;
         }
       in
 

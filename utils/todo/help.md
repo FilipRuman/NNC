@@ -1,4 +1,5 @@
-usage: todo [-d|--date] [-p|--path] [-t|--title] [-c|--contents] [-o|--open]
+usage: todo [--done][-d|--date] [-p|--path] [-t|--title] [-c|--contents]
+[-o|--open]
 <command> [<args>]
 
 commands:
@@ -6,6 +7,8 @@ commands:
 - show
 - create
 - help
+- remove
+- done
 
 Arguments info:
 

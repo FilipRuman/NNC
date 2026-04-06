@@ -19,6 +19,7 @@ let get_metadata_string
   [
     Option.map (Printf.sprintf "Title: %s") parsed_arguments.title;
     Option.map (Printf.sprintf "Date: %s") parsed_arguments.date;
+    (if parsed_arguments.is_done then Some "Done: true" else None);
   ]
   |> List.filter_map Fun.id |> String.concat "\n"
 
@@ -29,6 +30,10 @@ let get_file_contents
   let metadata = get_metadata_string (parsed_arguments, parsed_config) in
   Printf.sprintf "---\n%s\n---\n%s" metadata contents
 
+let open_file (parsed_config : Config.parsed_config) path =
+  ignore
+    (Sys.command (Printf.sprintf "%s '%s'" parsed_config.open_command path))
+
 let handle_create_command
     ( (parsed_arguments : Arguments.parsed_arguments),
       (parsed_config : Config.parsed_config) ) =
@@ -36,13 +41,8 @@ let handle_create_command
   let contents = get_file_contents (parsed_arguments, parsed_config) in
 
   let out_chan = open_out path in
-  Printf.printf "contents: '%s' \n" contents;
-
-  Printf.printf "open: '%b' \n" parsed_arguments.open_file;
   output_string out_chan contents;
   flush out_chan;
 
-  if parsed_arguments.open_file then
-    ignore (Sys.command (parsed_config.open_command ^ " " ^ path));
-
+  if parsed_arguments.open_file then open_file parsed_config path;
   Printf.printf "File created at: '%s' \n" path
