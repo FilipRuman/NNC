@@ -1,3 +1,9 @@
 
 flake.lock
 /utils/todo/_build
+/utils/todo/_build/default/bin
+/utils/todo/_build
+/utils/todo/_build
+/utils/todo/_build/.db
+/utils/todo/_build/.digest-db
+/utils/todo/_build/log
