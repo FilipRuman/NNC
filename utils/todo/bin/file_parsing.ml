@@ -16,29 +16,37 @@ let parse_file path =
       match line with
       | "---" -> is_meta_data := not !is_meta_data
       | _ ->
-          if !is_meta_data then
+          if !is_meta_data then (
             let split = String.split_on_char ':' line in
 
-            if List.length split != 2 then
+            if List.length split < 2 then
               Printf.printf
                 "Inside file '%s' line nr.%d with content '%s' is not a valid \
                  metadata"
                 path i line
             else
               let meta_data_type = List.nth split 0 in
-              let meta_data_value = List.nth split 1 in
+
+              let meta_data_value = ref "" in
+
+              List.iteri
+                (fun i str ->
+                  if i != 0 then
+                    if i == 1 then meta_data_value := !meta_data_value ^ str
+                    else meta_data_value := !meta_data_value ^ ":" ^ str)
+                split;
               match meta_data_type with
               | "title" | "Title" ->
-                  parsed_file := { !parsed_file with title = meta_data_value }
+                  parsed_file := { !parsed_file with title = !meta_data_value }
               | "done" | "Done" ->
                   parsed_file := { !parsed_file with is_done = true }
               | "date" | "Date" ->
-                  parsed_file := { !parsed_file with date = meta_data_value }
+                  parsed_file := { !parsed_file with date = !meta_data_value }
               | _ ->
                   Printf.printf
                     "WARN: File '%s' line nr.%d with content '%s' contains \
                      invalid metadata type:'%s' \n"
-                    path i line meta_data_type
+                    path i line meta_data_type)
           else contents := !contents ^ line);
   !parsed_file
 

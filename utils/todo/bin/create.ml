@@ -31,8 +31,8 @@ let get_file_contents
   Printf.sprintf "---\n%s\n---\n%s" metadata contents
 
 let open_file (parsed_config : Config.parsed_config) path =
-  ignore
-    (Sys.command (Printf.sprintf "%s '%s'" parsed_config.open_command path))
+  Printf.printf "Open command: %s %S" parsed_config.open_command path;
+  ignore (Sys.command (Printf.sprintf "%s %S" parsed_config.open_command path))
 
 let handle_create_command
     ( (parsed_arguments : Arguments.parsed_arguments),
