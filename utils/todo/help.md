@@ -1,5 +1,5 @@
 usage: todo [--done][-d|--date] [-p|--path] [-t|--title] [-c|--contents]
-[-o|--open]
+[-o|--open] [-i|--priority] [-l|--labels]
 <command> [<args>]
 
 commands:

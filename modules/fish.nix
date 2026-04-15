@@ -9,7 +9,7 @@
           readHost = "set -g host (cat /etc/nixos/host.txt)";
           addToDict = " nim r --hints:off /etc/nixos/NNC/utils/addToDict.nim";
           syncTodo = "pushd ~/git/todo/;git pull;git add -A;git commit -m 'Update';git push;clear;popd";
-          todo = " pushd /etc/nixos/NNC/utils/todo; orun todo -- $argv[1..-1] ; popd ";
+          todo = "/etc/nixos/NNC/utils/todo/target/debug/todo ";
           orun = "set -x OCAMLRUNPARAM b; dune build; dune exec";
           q = "qalc -c -i";
           helium = "nix run github:AlvaroParker/helium-nix";

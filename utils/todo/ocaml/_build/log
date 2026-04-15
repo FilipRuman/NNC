@@ -1,0 +1,16 @@
+# dune exec todo -- show
+# OCAMLPARAM: unset
+# Shared cache: enabled-except-user-rules
+# Shared cache location: /home/f/.cache/dune/db
+# Workspace root: /etc/nixos/NNC/utils/todo
+# Auto-detected concurrency: 32
+# Dune context:
+#  { name = "default"
+#  ; kind = "default"
+#  ; profile = Dev
+#  ; merlin = true
+#  ; fdo_target_exe = None
+#  ; build_dir = In_build_dir "default"
+#  ; instrument_with = []
+#  }
+$ /run/current-system/sw/bin/ocamlc.opt -config > /tmp/dune_2faa3e_output

@@ -19,7 +19,7 @@
 
     programs.hyprland = {
       enable = true;
-      withUWSM = false; # recommended for most users
+      withUWSM = true; # recommended for most users
       xwayland.enable = true; #
       portalPackage = pkgs.xdg-desktop-portal-hyprland;
     };

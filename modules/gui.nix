@@ -7,6 +7,7 @@
       firefox
       feishin
       ghostty
+      orca-slicer
     ];
   };
 }

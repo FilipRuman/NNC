@@ -1,0 +1,14 @@
+/etc/nixos/NNC/utils/todo/rust/target/debug/deps/anstream-b26c0e4b2818be9a.d: /home/f/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/anstream-1.0.0/src/lib.rs /home/f/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/anstream-1.0.0/src/adapter/mod.rs /home/f/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/anstream-1.0.0/src/adapter/strip.rs /home/f/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/anstream-1.0.0/src/adapter/wincon.rs /home/f/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/anstream-1.0.0/src/stream.rs /home/f/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/anstream-1.0.0/src/_macros.rs /home/f/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/anstream-1.0.0/src/auto.rs /home/f/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/anstream-1.0.0/src/buffer.rs /home/f/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/anstream-1.0.0/src/fmt.rs /home/f/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/anstream-1.0.0/src/strip.rs
+
+/etc/nixos/NNC/utils/todo/rust/target/debug/deps/libanstream-b26c0e4b2818be9a.rmeta: /home/f/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/anstream-1.0.0/src/lib.rs /home/f/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/anstream-1.0.0/src/adapter/mod.rs /home/f/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/anstream-1.0.0/src/adapter/strip.rs /home/f/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/anstream-1.0.0/src/adapter/wincon.rs /home/f/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/anstream-1.0.0/src/stream.rs /home/f/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/anstream-1.0.0/src/_macros.rs /home/f/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/anstream-1.0.0/src/auto.rs /home/f/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/anstream-1.0.0/src/buffer.rs /home/f/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/anstream-1.0.0/src/fmt.rs /home/f/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/anstream-1.0.0/src/strip.rs
+
+/home/f/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/anstream-1.0.0/src/lib.rs:
+/home/f/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/anstream-1.0.0/src/adapter/mod.rs:
+/home/f/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/anstream-1.0.0/src/adapter/strip.rs:
+/home/f/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/anstream-1.0.0/src/adapter/wincon.rs:
+/home/f/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/anstream-1.0.0/src/stream.rs:
+/home/f/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/anstream-1.0.0/src/_macros.rs:
+/home/f/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/anstream-1.0.0/src/auto.rs:
+/home/f/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/anstream-1.0.0/src/buffer.rs:
+/home/f/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/anstream-1.0.0/src/fmt.rs:
+/home/f/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/anstream-1.0.0/src/strip.rs:
