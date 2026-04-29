@@ -9,6 +9,10 @@
     inputs.nixpkgs.follows = "nixpkgs";
   };
 
+  flake-file.inputs = {
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
+  };
+
   imports = [
     inputs.home-manager.flakeModules.home-manager
   ];
@@ -20,6 +24,7 @@
         zig
         nim
         rust
+        py
         c
         js
         asm
@@ -83,6 +88,7 @@
       environment.systemPackages = with pkgs; [
         unityhub
         blender
+        freetube
       ];
 
       boot.initrd.kernelModules = ["amdgpu"];

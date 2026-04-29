@@ -12,6 +12,9 @@
   imports = [
     inputs.home-manager.flakeModules.home-manager
   ];
+  flake-file.inputs = {
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
+  };
   flake = {
     nixosConfigurations.laptop = inputs.nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
