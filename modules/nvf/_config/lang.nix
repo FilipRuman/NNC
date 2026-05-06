@@ -39,12 +39,9 @@
       astro.enable = true;
       csharp = {
         enable = true;
-        lsp.servers = ["roslyn_ls"];
+        lsp.servers = ["roslyn-ls"];
       };
       nim.enable = true;
-
-      # Language modules that are not as common.
-      ts.enable = false;
       ocaml.enable = true;
     };
   };

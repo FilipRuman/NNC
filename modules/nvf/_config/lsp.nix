@@ -20,18 +20,16 @@
 
         renameSymbol = "<F2>";
       };
-      harper-ls = {
-        enable = true;
-        settings = {
-          linters = {
-            BoringWords = true;
-            PossessiveNoun = true;
-            SentenceCapitalization = true;
-            SpellCheck = true;
-            userDictPath = "~/.config/harper/custom.dict";
-          };
+      servers.harper.settings = {
+        linters = {
+          BoringWords = true;
+          PossessiveNoun = true;
+          SentenceCapitalization = true;
+          SpellCheck = true;
+          userDictPath = "~/.config/harper/custom.dict";
         };
       };
+      presets.harper.enable = true;
     };
 
     snippets.luasnip.enable = true;

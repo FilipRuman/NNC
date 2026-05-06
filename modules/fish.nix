@@ -60,6 +60,13 @@
         shellAbbrs = {
           vm = "~/vms/run.sh";
           nixCargo = "nix-shell --run 'cargo run'";
+          record_audio = "
+ffmpeg \
+        -f pulse -i alsa_output.pci-0000_15_00.6.analog-stereo.monitor \
+        -c:a flac \
+        -compression_level 0 \
+        output.flac
+                                                ";
         };
       };
 

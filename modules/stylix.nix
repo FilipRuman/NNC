@@ -1,5 +1,8 @@
 {inputs, ...}: {
-  flake-file.inputs.stylix.url = "github:danth/stylix";
+  flake-file.inputs.stylix = {
+    url = "github:danth/stylix";
+    inputs.nixpkgs.follows = "nixpkgs";
+  };
 
   flake.nixosModules.stylix = {pkgs, ...}: let
     fonts = import ./fonts/_consts.nix {inherit pkgs;};

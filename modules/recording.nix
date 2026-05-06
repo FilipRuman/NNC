@@ -4,6 +4,7 @@
     environment.systemPackages = with pkgs; [
       gpu-screen-recorder
       grimblast
+      audacity
     ];
   };
 }

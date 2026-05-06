@@ -10,7 +10,7 @@
   };
 
   flake-file.inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
   };
 
   imports = [
@@ -67,6 +67,7 @@
         "io.ente.auth"
         "com.brave.Browser"
         "com.discordapp.Discord"
+        "org.gimp.GIMP"
       ];
       imports = [
         inputs.home-manager.nixosModules.default
@@ -86,6 +87,8 @@
       home-manager.backupFileExtension = "home-managebak";
 
       environment.systemPackages = with pkgs; [
+        ffmpeg
+        pulseaudio
         unityhub
         blender
         freetube
