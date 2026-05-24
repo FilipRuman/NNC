@@ -1,2 +1,3 @@
 #!/bin/sh
-pkill -f gpu-screen-recorder
+pkill -f wf-recorder
+pactl unload-module module-combine-sink

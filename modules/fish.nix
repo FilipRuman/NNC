@@ -56,6 +56,22 @@
               rm -f -- "$tmp"
             '';
           };
+
+          record.body = ''
+            set ts (date +%F_%H-%M-%S)
+
+            pactl load-module module-combine-sink \
+              sink_name=combined \
+              slaves=alsa_output.pci-0000_15_00.6.analog-stereo
+
+            pactl load-module module-loopback \
+              source=alsa_input.usb-MV-SILICON_fifine_Microphone_20190808-00.mono-fallback \
+              sink=combined
+
+            sleep 1
+
+            wf-recorder --audio=combined.monitor -f "$HOME/Videos/recording_$ts.mp4"
+          '';
         };
         shellAbbrs = {
           vm = "~/vms/run.sh";

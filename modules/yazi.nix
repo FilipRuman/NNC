@@ -3,7 +3,7 @@
     programs.yazi = {
       enable = true;
       enableFishIntegration = true;
-      settings = {show_hidden = true;};
+      settings = {show-hidden = true;};
       keymap = {
         input.prepend_keymap = [
           {
