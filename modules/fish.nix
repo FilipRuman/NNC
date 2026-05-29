@@ -74,6 +74,9 @@
           '';
         };
         shellAbbrs = {
+
+          dysk = "sudo nix run nixpkgs#dysk";
+          a = "y /run/media/f/";
           vm = "~/vms/run.sh";
           nixCargo = "nix-shell --run 'cargo run'";
           record_audio = "

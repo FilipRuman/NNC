@@ -1,12 +1,13 @@
 {
-  flake.nixosModules.recording = {pkgs, ...}: {
-    programs.gpu-screen-recorder.enable = true;
-    environment.systemPackages = with pkgs; [
-      gpu-screen-recorder
-      wf-recorder
-      grimblast
-      audacity
-      davinci-resolve
-    ];
-  };
+  flake.nixosModules.recording =
+    { pkgs, ... }:
+    {
+      programs.gpu-screen-recorder.enable = true;
+      environment.systemPackages = with pkgs; [
+        gpu-screen-recorder
+        wf-recorder
+        grimblast
+        audacity
+      ];
+    };
 }

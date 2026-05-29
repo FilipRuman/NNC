@@ -3,7 +3,8 @@
   self,
   lib,
   ...
-}: {
+}:
+{
   flake-file.inputs.home-manager = {
     url = lib.mkDefault "github:nix-community/home-manager";
     inputs.nixpkgs.follows = "nixpkgs";
@@ -19,6 +20,7 @@
     nixosConfigurations.laptop = inputs.nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = with self.nixosModules; [
+        auto_mount
         cs
         zig
         nim
@@ -59,36 +61,38 @@
       ];
     };
 
-    nixosModules.laptop = {pkgs, ...}: {
-      services.flatpak.packages = [
-        "io.ente.auth"
-        "com.brave.Browser"
-        "com.discordapp.Discord"
-      ];
-      imports = [
-        inputs.home-manager.nixosModules.default
-      ];
-
-      home-manager.users.f = {
-        imports = with self.homeModules; [
-          laptop
-          general
+    nixosModules.laptop =
+      { pkgs, ... }:
+      {
+        services.flatpak.packages = [
+          "io.ente.auth"
+          "com.brave.Browser"
+          "com.discordapp.Discord"
         ];
-        home = {
-          stateVersion = "25.11";
-          username = "f";
-          homeDirectory = "/home/f";
+        imports = [
+          inputs.home-manager.nixosModules.default
+        ];
+
+        home-manager.users.f = {
+          imports = with self.homeModules; [
+            laptop
+            general
+          ];
+          home = {
+            stateVersion = "25.11";
+            username = "f";
+            homeDirectory = "/home/f";
+          };
         };
+        home-manager.backupFileExtension = "home-managebak";
+
+        environment.systemPackages = with pkgs; [
+          unityhub
+          blender
+        ];
+
+        boot.initrd.kernelModules = [ "amdgpu" ];
+        boot.kernelParams = [ "nvidia-drm.modeset=1" ];
       };
-      home-manager.backupFileExtension = "home-managebak";
-
-      environment.systemPackages = with pkgs; [
-        unityhub
-        blender
-      ];
-
-      boot.initrd.kernelModules = ["amdgpu"];
-      boot.kernelParams = ["nvidia-drm.modeset=1"];
-    };
   };
 }

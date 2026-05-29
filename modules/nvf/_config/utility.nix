@@ -15,7 +15,7 @@
       };
 
       # ccc.enable = false;
-      vim-wakatime.enable = true;
+      vim-wakatime.enable = false;
       diffview-nvim.enable = true;
       qmk-nvim.enable = false; # requires hardware specific options
       icon-picker.enable = true;

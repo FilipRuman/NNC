@@ -4,7 +4,7 @@
       # This must be enabled for the language modules to hook into
       # the LSP API.
       enable = true;
-      formatOnSave = true;
+      formatOnSave = false;
       lspkind.enable = false;
       lspsaga.enable = false;
       trouble.enable = true;

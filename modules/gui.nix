@@ -1,12 +1,15 @@
 {
-  flake.nixosModules.gui = {pkgs, ...}: {
-    environment.systemPackages = with pkgs; [
-      signal-desktop
-      gparted
-      firefox
-      feishin
-      ghostty
-      orca-slicer
-    ];
-  };
+  flake.nixosModules.gui =
+    { pkgs, ... }:
+    {
+      environment.systemPackages = with pkgs; [
+        # signal-desktop
+        gparted
+        # firefox
+        feishin
+        ghostty
+        orca-slicer
+        # kdePackages.dolphin
+      ];
+    };
 }

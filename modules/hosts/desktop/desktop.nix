@@ -3,7 +3,8 @@
   self,
   lib,
   ...
-}: {
+}:
+{
   flake-file.inputs.home-manager = {
     url = lib.mkDefault "github:nix-community/home-manager";
     inputs.nixpkgs.follows = "nixpkgs";
@@ -20,6 +21,7 @@
     nixosConfigurations.desktop = inputs.nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = with self.nixosModules; [
+        auto_mount
         cs
         zig
         nim
@@ -40,7 +42,7 @@
         #plasma
         nvf
         gui
-        #ctf
+        # ctf
         docker
         essentials
         flatpak
@@ -62,42 +64,36 @@
       ];
     };
 
-    nixosModules.desktop = {pkgs, ...}: {
-      services.flatpak.packages = [
-        "io.ente.auth"
-        "com.brave.Browser"
-        "com.discordapp.Discord"
-        "org.gimp.GIMP"
-      ];
-      imports = [
-        inputs.home-manager.nixosModules.default
-      ];
-
-      home-manager.users.f = {
-        imports = with self.homeModules; [
-          desktop
-          general
+    nixosModules.desktop =
+      { pkgs, ... }:
+      {
+        services.flatpak.packages = [
+          "io.ente.auth"
+          "com.brave.Browser"
+          "com.discordapp.Discord"
+          "org.gimp.GIMP"
         ];
-        home = {
-          stateVersion = "25.11";
-          # stateVersion = "26.05";
+        imports = [
+          inputs.home-manager.nixosModules.default
+        ];
 
-          username = "f";
-          homeDirectory = "/home/f";
+        home-manager.users.f = {
+          imports = with self.homeModules; [
+            desktop
+            general
+          ];
+          home = {
+            stateVersion = "25.11";
+            # stateVersion = "26.05";
+
+            username = "f";
+            homeDirectory = "/home/f";
+          };
         };
+        home-manager.backupFileExtension = "home-managebak";
+
+        boot.initrd.kernelModules = [ "amdgpu" ];
+        boot.kernelParams = [ "nvidia-drm.modeset=1" ];
       };
-      home-manager.backupFileExtension = "home-managebak";
-
-      environment.systemPackages = with pkgs; [
-        ffmpeg
-        pulseaudio
-        unityhub
-        blender
-        freetube
-      ];
-
-      boot.initrd.kernelModules = ["amdgpu"];
-      boot.kernelParams = ["nvidia-drm.modeset=1"];
-    };
   };
 }
