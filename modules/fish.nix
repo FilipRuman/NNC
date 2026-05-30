@@ -15,14 +15,11 @@
           helium = "nix run github:AlvaroParker/helium-nix";
           zen = "nix run github:youwen5/zen-browser-flake";
           onUpdate = "sudo /etc/nixos/onUpdate.sh";
-          rebuild = "readHost ; cd /etc/nixos/NNC/ ; git add '*'; sudo nix run .#write-flake ; sudo nixos-rebuild switch --upgrade --flake .#$host";
-          updateNix = "cd /etc/nixos/NNC/; git pull ; rebuild ; sudo nix flake update ; flatpak update -y ; onUpdate ; nix profile upgrade ' * '; cleanup; syncTodo";
+          rebuild = "readHost ; cd /etc/nixos/NNC/ ; git add '*'; sudo nix run .#write-flake --access-tokens github.com=$GITHUB_TOKEN ; sudo nixos-rebuild switch --upgrade --flake .#$host";
+          updateNix = "cd /etc/nixos/NNC/; git pull ; rebuild ; sudo nix flake update --access-tokens github.com=$GITHUB_TOKEN ; flatpak update -y ; onUpdate ; cleanup; nix-store --optimise ; syncTodo";
           config = "ne /etc/nixos/NNC/modules";
           configSystem = "sudo -E -s nvim /etc/nixos/flake.nix";
-          bashrc = "sudo -E -s nvim ~/.bashrc";
-          configFish = "sudo -E -s nvim ~/.config/fish/config.fish";
           updateAllSubmodules = "git submodule update --init --recursive";
-          configGhostty = "~/.config/ghostty/config";
           ne = "neovide";
           rem_vim = "nix run --refresh github:FilipRuman/NNC?dir=nvf/selfcontained";
           sudoNvim = "sudo -E -s nvim";
@@ -30,7 +27,6 @@
           cleanupAll = "sudo nix-collect-garbage -d";
           godot = "steam-run ~/Documents/godot/godot.x86_64";
           tauriRun = "sudo npm run tauri dev";
-          configKanata = "nvim ~/.config/kanata/config.kbd";
           espSetup = "nix --experimental-features 'nix-command flakes' develop github:mirrexagon/nixpkgs-esp-dev#esp-idf-full ; fish";
           espRun = "sudo -s -E idf.py --port /dev/ttyUSB0 flash monitor";
           notes = "ne ~/Nextcloud/Notes/";
@@ -57,28 +53,31 @@
             '';
           };
 
-          record.body = ''
-            set ts (date +%F_%H-%M-%S)
-
-            pactl load-module module-combine-sink \
-              sink_name=combined \
-              slaves=alsa_output.pci-0000_15_00.6.analog-stereo
-
-            pactl load-module module-loopback \
-              source=alsa_input.usb-MV-SILICON_fifine_Microphone_20190808-00.mono-fallback \
-              sink=combined
-
-            sleep 1
-
-            wf-recorder --audio=combined.monitor -f "$HOME/Videos/recording_$ts.mp4"
-          '';
+          # record.body = ''
+          #   set ts (date +%F_%H-%M-%S)
+          #
+          #   pactl load-module module-combine-sink \
+          #     sink_name=combined \
+          #     slaves=alsa_output.pci-0000_15_00.6.analog-stereo
+          #
+          #   pactl load-module module-loopback \
+          #     source=alsa_input.usb-MV-SILICON_fifine_Microphone_20190808-00.mono-fallback \
+          #     sink=combined
+          #
+          #   sleep 1
+          #
+          #   wf-recorder --audio=combined.monitor -f "$HOME/Videos/recording_$ts.mp4"
+          # '';
         };
         shellAbbrs = {
 
+          ncdu = "nix-shell -p ncdu --run 'sudo ncdu /'";
+          disk = "dysk; ncdu";
           dysk = "sudo nix run nixpkgs#dysk";
           a = "y /run/media/f/";
           vm = "~/vms/run.sh";
           nixCargo = "nix-shell --run 'cargo run'";
+          token = "set -x GITHUB_TOKEN";
           record_audio = "
 ffmpeg \
         -f pulse -i alsa_output.pci-0000_15_00.6.analog-stereo.monitor \

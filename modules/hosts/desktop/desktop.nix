@@ -10,9 +10,6 @@
     inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  flake-file.inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-  };
 
   imports = [
     inputs.home-manager.flakeModules.home-manager
