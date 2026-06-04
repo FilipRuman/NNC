@@ -1,47 +1,51 @@
-import {Circle, makeScene2D, waitFor,Img,Svg,Code,lines} from '@motion-canvas/2d';
-import {createRef,DEFAULT,waitFor} from '@motion-canvas/core';
+import {Circle,Rect,Txt,Layout, makeScene2D, waitFor,Img,SVG,Code,lines} from '@motion-canvas/2d';
+import {createRef,DEFAULT,waitFor,Reference} from '@motion-canvas/core';
+
+import {Rect, Layout, Code, Txt} from '@motion-canvas/2d';
+import {CodeWindow} from '../components/CodeWindow.tsx';
+
+
 
 export default makeScene2D(function* (view) {
-  // Create your animations here
 
-  const img = createRef<Svg>();
-  const code = createRef<Code>();
+  view.fill('#242424'); // set the background of this scene
 
- view.add(
-        <Svg
-                ref={img}
-                src="./ad_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg"
-        />,
-    <Code
-      ref={code}
-      fontSize={28}
-      offsetX={-1}
-      x={-800}
+const leftWindow = createRef<CodeWindow>();
+const rightWindow = createRef<CodeWindow>();
+
+view.add(
+  <Layout
+    layout
+    direction="row"
+    gap={40}
+    alignItems="start"
+    y={-200}
+  >
+    <CodeWindow
+      ref={leftWindow}
+      title="src/old.ts"
+      width={650}
+      height={1050}
+      fontSize={18}
       code={`\
-function hello() {
-  console.log('Hello');
-}`}
-    />,
-  );
+function greet(name: string) {
+  console.log("Hello " + name);
+}
+`}
+    />
 
-
-  // view.add(<Circle ref={circle} size={320} fill={'lightseagreen'} />);
-
-  // yield* circle().scale(2, 2).to(1, 2);
-  // yield* waitFor(3);
-  // yield* circle().position.x(100, 2);
-
-  // select all instances of "hello" (case-insensitive)
-  yield* code().selection(code().findAllRanges(/hello/gi), 0.6);
-  yield* waitFor(0.3);
-
-  // select line 1
-  yield* code().selection(lines(1), 0.6);
-  yield* waitFor(0.3);
-
-  // reset the selection
-  yield* code().selection(DEFAULT, 0.6);
-  yield* waitFor(0.3);
-
+    <CodeWindow
+      ref={rightWindow}
+      title="src/new.ts"
+      width={650}
+      fontSize={18}
+      code={`\
+function greet(name: string) {
+  console.log(\`Hello \${name}\`);
+}
+`}
+    />
+  </Layout>,
+);
 
 });
