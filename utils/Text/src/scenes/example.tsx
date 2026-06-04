@@ -19,13 +19,14 @@ view.add(
     direction="row"
     gap={40}
     alignItems="start"
-    y={-200}
+    y={0}
+    x={100}
   >
     <CodeWindow
       ref={leftWindow}
       title="src/old.ts"
       width={650}
-      height={1050}
+      height={600}
       fontSize={18}
       code={`\
 function greet(name: string) {
@@ -37,6 +38,7 @@ function greet(name: string) {
     <CodeWindow
       ref={rightWindow}
       title="src/new.ts"
+      height={600}
       width={650}
       fontSize={18}
       code={`\

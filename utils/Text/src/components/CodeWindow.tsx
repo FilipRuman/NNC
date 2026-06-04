@@ -1,15 +1,13 @@
-import {Circle,Rect,Txt,Layout, makeScene2D, waitFor,Img,SVG,Code,lines} from '@motion-canvas/2d';
-import {createRef,DEFAULT,waitFor,Reference} from '@motion-canvas/core';
-
-import {Rect, Layout, Code, Txt} from '@motion-canvas/2d';
+import {Circle, Rect, Txt, Layout, Code} from '@motion-canvas/2d';
+import {createRef} from '@motion-canvas/core';
 
 export interface CodeWindowProps {
   code: string;
   title?: string;
   fontSize?: number;
-  titleFontSize?: number,
-
+  titleFontSize?: number;
   width?: number;
+  height?: number; // ✅ NEW
 }
 
 export class CodeWindow extends Rect {
@@ -18,9 +16,10 @@ export class CodeWindow extends Rect {
   public constructor({
     code,
     title = 'src/main.ts',
-    fontSize= 24,
+    fontSize = 24,
     titleFontSize = 28,
-    width,
+    width = 700,
+    height, // ✅ NEW
   }: CodeWindowProps) {
     super({
       fill: '#1e1e1e',
@@ -28,6 +27,7 @@ export class CodeWindow extends Rect {
       layout: true,
       direction: 'column',
       width,
+      height, // ✅ APPLY HERE
       clip: true,
       shadowBlur: 20,
       shadowColor: '#0008',
@@ -35,7 +35,7 @@ export class CodeWindow extends Rect {
 
     this.add(
       <>
-        {/* Title Bar */}
+        {/* Title Bar (fixed height) */}
         <Rect
           height={48}
           width={'100%'}
@@ -63,6 +63,7 @@ export class CodeWindow extends Rect {
         {/* Editor Area */}
         <Layout
           padding={24}
+          grow={1}   // ✅ IMPORTANT: fills remaining height
           fill="#1e1e1e"
         >
           <Code
