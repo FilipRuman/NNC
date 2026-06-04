@@ -21,6 +21,7 @@
       css.enable = true;
       html.enable = false;
       json.enable = true;
+      typescript.enable = true;
       sql.enable = true;
       go.enable = true;
       lua.enable = true;
@@ -39,7 +40,7 @@
       astro.enable = true;
       csharp = {
         enable = true;
-        lsp.servers = ["roslyn-ls"];
+        lsp.servers = [ "roslyn-ls" ];
       };
       nim.enable = true;
       ocaml.enable = true;

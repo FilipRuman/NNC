@@ -1,7 +1,7 @@
 {
 
   flake-file.inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
   };
   flake.nixosModules.systemGeneral =
     { pkgs, ... }:

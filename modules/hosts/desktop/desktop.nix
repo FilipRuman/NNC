@@ -10,7 +10,6 @@
     inputs.nixpkgs.follows = "nixpkgs";
   };
 
-
   imports = [
     inputs.home-manager.flakeModules.home-manager
   ];
@@ -68,7 +67,6 @@
           "io.ente.auth"
           "com.brave.Browser"
           "com.discordapp.Discord"
-          "org.gimp.GIMP"
         ];
         imports = [
           inputs.home-manager.nixosModules.default
@@ -80,8 +78,7 @@
             general
           ];
           home = {
-            stateVersion = "25.11";
-            # stateVersion = "26.05";
+            stateVersion = "25.05";
 
             username = "f";
             homeDirectory = "/home/f";

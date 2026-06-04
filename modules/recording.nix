@@ -3,11 +3,19 @@
     { pkgs, ... }:
     {
       programs.gpu-screen-recorder.enable = true;
-      environment.systemPackages = with pkgs; [
-        gpu-screen-recorder
-        wf-recorder
-        grimblast
-        audacity
+      environment.systemPackages = [
+        pkgs.gpu-screen-recorder
+        pkgs.manim
+        pkgs.wf-recorder
+        pkgs.grimblast
+        pkgs.grim
+        pkgs.slurp
+        pkgs.zenity
+        pkgs.audacity
+        (pkgs.writeShellScriptBin "recording_tool" ''
+          exec /etc/nixos/NNC/utils/recording_tool/target/debug/recording_tool "$@"
+        '')
       ];
+
     };
 }
