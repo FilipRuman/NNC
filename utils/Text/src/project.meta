@@ -4,11 +4,11 @@
     "background": "rgba(0,0,0,0)",
     "range": [
       0,
-      5.999999
+      null
     ],
     "size": {
-      "x": 1920,
-      "y": 1080
+      "x": 3840,
+      "y": 2160
     },
     "audioOffset": 0
   },

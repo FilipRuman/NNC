@@ -15,6 +15,7 @@
       enableExtraDiagnostics = true;
 
       nix.enable = true;
+      tsx.enable = true;
       markdown.enable = true;
       bash.enable = true;
       clang.enable = true;

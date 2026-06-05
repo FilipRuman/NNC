@@ -69,9 +69,9 @@ add 'help' argument to see all possible operations
         "rec-start" => execute_command(format!(
             r#"
 wf-recorder -a \
-  --codec=prores_ks \
+  -c h264_nvenc\
   -r 30 \
-  -f "{}/recording_$(date +%F_%H-%M-%S).mov"
+  -f "{}/recording_$(date +%F_%H-%M-%S).mkv"
 "#,
             project_path(&config)
         )),
