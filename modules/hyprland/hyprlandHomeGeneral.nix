@@ -76,7 +76,7 @@
         "Super, T, exec, recording_tool rec-start"
         "Super SHIFT, T, exec, recording_tool rec-end"
         "Super, O, exec, recording_tool shot-clipboard"
-        "Super, C, exec, recording_tool rec-save"
+        "Super, C, exec, recording_tool shot-save"
         ", Print, exec, grimblast copy area"
 
         "Super , R, fullscreen,"
