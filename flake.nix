@@ -19,6 +19,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     import-tree.url = "github:vic/import-tree";
+    nixpkgs-resolve = {
+      url = "github:NixOS/nixpkgs/586b979a8ccb8f35d5fe06645dd678a8b343f16f";
+    };
+
     nix-flatpak = {
       url = "github:gmodena/nix-flatpak";
       inputs.nixpkgs.follows = "nixpkgs";

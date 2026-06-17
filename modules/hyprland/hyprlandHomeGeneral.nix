@@ -73,6 +73,7 @@
         "Super, G, exec, ghostty"
         "Super, H, exec, rofi -show drun"
         "Super, X, exec, hyprlock"
+        "Super, V, exec, recording_tool vo"
         "Super, T, exec, recording_tool rec-start"
         "Super SHIFT, T, exec, recording_tool rec-end"
         "Super, O, exec, recording_tool shot-clipboard"

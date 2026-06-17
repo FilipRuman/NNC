@@ -7,3 +7,10 @@ flake.lock
 /utils/todo/_build/.db
 /utils/todo/_build/.digest-db
 /utils/todo/_build/log
+/utils/Canvas/node_modules/.vite/deps
+/utils/manim/logo/__pycache__/main.cpython-313.pyc
+/utils/recording_tool/src/media
+/utils/recording_tool/target
+/utils/recording_tool/media
+/utils/recording_tool/media/videos/main/1080p60
+/utils/manim/logo/media/videos/main

@@ -1,6 +1,5 @@
 {
-  flake.nixosModules.audio = {pkgs, ...}: {
-    services.pulseaudio.enable = false;
+  flake.nixosModules.audio = { pkgs, ... }: {
     security.rtkit.enable = true;
 
     services.pipewire = {
@@ -18,8 +17,8 @@
 
     environment.systemPackages = with pkgs; [
       wireplumber
-        pipewire
-    alsa-plugins
+      pipewire
+      alsa-plugins
       playerctl
       pavucontrol
     ];

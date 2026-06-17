@@ -28,6 +28,7 @@
         asm
         ocaml
 
+        resolve
         desktop
         hyprland
         audio

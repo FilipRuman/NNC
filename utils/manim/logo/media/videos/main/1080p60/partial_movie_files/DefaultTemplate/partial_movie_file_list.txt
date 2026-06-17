@@ -1,0 +1,2 @@
+# This file is used internally by FFMPEG.
+file 'file:/etc/nixos/NNC/utils/manim/logo/media/videos/main/1080p60/partial_movie_files/DefaultTemplate/1577493168_88566702_223132457.mov'

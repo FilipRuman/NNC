@@ -2,6 +2,7 @@ use std::{
     env::{self, args},
     fs::{self, DirBuilder, File, OpenOptions},
     io::{Read, Write},
+    path::Path,
     process::Command,
 };
 
@@ -27,6 +28,7 @@ shot-clipboard -> do a screenshot to clipboard
 shot-save -> do a screenshot and open save dialog
 proj "PROJECT NAME" -> set project name
 manim-logo "Input .svg file path" -> creates an animation for this logo in manim 
+manim-note  ->
 help -> help
 "#;
 
@@ -62,19 +64,48 @@ add 'help' argument to see all possible operations
 "#,
     );
     match operation_name.as_str() {
+        "transcode" => {
+            let path_string = args
+                .next()
+                .expect("Expected to find path to a file that you want to transcode!");
+            let path = Path::new(&path_string);
+            let parent = path.parent().unwrap();
+            let stem = path.file_stem().unwrap().to_string_lossy();
+
+            let mut new_name = String::with_capacity(stem.len() + 7);
+            new_name.push_str(&stem);
+            new_name.push_str("_transc.mov");
+
+            let transcoded_file_path = parent.join(new_name);
+            execute_command(format!(
+                "ffmpeg -i {path_string} \
+        -vf fps=60 \
+        -c:v dnxhd -profile:v dnxhr_lb \
+        -pix_fmt yuv422p \
+        -c:a pcm_s16le \
+                    {}",
+                transcoded_file_path.to_str().unwrap()
+            ));
+        }
         "rec-end" => {
             execute_command("pkill -f wf-recorder".to_string());
-            std::process::Command::new("");
+            execute_command("pkill -INT pw-record".to_string());
         }
-        "rec-start" => execute_command(format!(
-            r#"
+        "rec-start" => {
+            DirBuilder::new()
+                .recursive(true)
+                .create(project_path(&config) + "/rec/")
+                .unwrap();
+            execute_command(format!(
+                r#"
 wf-recorder -a \
   -c h264_nvenc\
-  -r 30 \
+  -r 60 \
   -f "{}/recording_$(date +%F_%H-%M-%S).mkv"
 "#,
-            project_path(&config)
-        )),
+                project_path(&config) + "/rec"
+            ))
+        }
         "shot-save" => execute_command(format!(
             r#"
 file=$(zenity --file-selection \
@@ -106,24 +137,52 @@ file=$(zenity --file-selection \
             let text = toml::to_string(&config);
             config_file.write(text.unwrap().as_bytes()).unwrap();
         }
-        "manim-logo" => {
-            fs::copy(
-                args.next().expect("expected a logo file path!"),
-                "/etc/nixos/NNC/utils/manim/logo/logo.svg",
-            )
-            .expect("While copying the logo file:");
+        "vo" => {
+            DirBuilder::new()
+                .recursive(true)
+                .create(project_path(&config) + "/vo/")
+                .unwrap();
             execute_command(format!(
-                r#" manim  /etc/nixos/NNC/utils/manim/logo/main.py"#,
-            ));
+                r#"
+pw-record "{}/recording_$(date +%F_%H-%M-%S).wav"
+"#,
+                project_path(&config) + "/vo"
+            ))
+        }
 
-            fs::copy(
-                format!(
-                    "{}/git/manim/logo/media/videos/main/3840p30/DefaultTemplate.mp4",
-                    env::var("HOME").expect("HOME not set")
-                ),
-                "./logo_anim.mp4",
-            )
-            .expect("while coppying the logo.mp4 file:");
+        "manim-note" => {
+            {
+                let title = args.next().expect("expected a title name!");
+                let mut title_file = OpenOptions::new()
+                    .read(true)
+                    .write(true)
+                    .truncate(true)
+                    .open("/etc/nixos/NNC/utils/manim/notes/title.txt")
+                    .unwrap();
+                title_file.write(&title.into_bytes()).unwrap();
+            }
+            {
+                let contents = args.next().expect("expected contents !");
+                let mut contents_file = OpenOptions::new()
+                    .read(true)
+                    .write(true)
+                    .truncate(true)
+                    .open("/etc/nixos/NNC/utils/manim/notes/text.txt")
+                    .unwrap();
+                contents_file.write(&contents.into_bytes()).unwrap();
+            }
+
+            execute_command(format!(
+                r#"manim  -r 3840,2160  --fps 60 --transparent   -qh /etc/nixos/NNC/utils/manim/notes/main.py ; /etc/nixos/NNC/utils/manim/notes/combine.bash"#,
+            ));
+        }
+        "manim-logo" => {
+            let logo_path = args.next().expect("expected a logo file path!");
+            println!("logo_path:{logo_path}");
+            execute_command(format!(
+                r#"cp {} "/etc/nixos/NNC/utils/manim/logo/logo.svg" ;manim -r 3840,2160  --fps 60 --transparent  --media_dir /etc/nixos/NNC/utils/manim/logo/media --format mov -qh /etc/nixos/NNC/utils/manim/logo/main.py ; cp  "/etc/nixos/NNC/utils/manim/logo/media/videos/main/2160p60/DefaultTemplate.mov" "./logo_anim.mov""#,
+                logo_path
+            ));
         }
         "help" => {
             println!("{}", HELP)

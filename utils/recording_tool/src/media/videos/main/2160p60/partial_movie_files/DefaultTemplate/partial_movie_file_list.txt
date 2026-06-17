@@ -1,0 +1,10 @@
+# This file is used internally by FFMPEG.
+file 'file:/etc/nixos/NNC/utils/recording_tool/src/media/videos/main/2160p60/partial_movie_files/DefaultTemplate/851163292_3620827701_3499013672.mov'
+file 'file:/etc/nixos/NNC/utils/recording_tool/src/media/videos/main/2160p60/partial_movie_files/DefaultTemplate/1272889000_1839128356_1763479085.mov'
+file 'file:/etc/nixos/NNC/utils/recording_tool/src/media/videos/main/2160p60/partial_movie_files/DefaultTemplate/1272889000_3544010035_1312421530.mov'
+file 'file:/etc/nixos/NNC/utils/recording_tool/src/media/videos/main/2160p60/partial_movie_files/DefaultTemplate/1272889000_1081265_2109279416.mov'
+file 'file:/etc/nixos/NNC/utils/recording_tool/src/media/videos/main/2160p60/partial_movie_files/DefaultTemplate/1272889000_3759600756_2109279416.mov'
+file 'file:/etc/nixos/NNC/utils/recording_tool/src/media/videos/main/2160p60/partial_movie_files/DefaultTemplate/1272889000_2972955816_2109279416.mov'
+file 'file:/etc/nixos/NNC/utils/recording_tool/src/media/videos/main/2160p60/partial_movie_files/DefaultTemplate/1272889000_3846636737_3545954489.mov'
+file 'file:/etc/nixos/NNC/utils/recording_tool/src/media/videos/main/2160p60/partial_movie_files/DefaultTemplate/1272889000_384168972_2398266647.mov'
+file 'file:/etc/nixos/NNC/utils/recording_tool/src/media/videos/main/2160p60/partial_movie_files/DefaultTemplate/1272889000_225758510_2398266647.mov'
