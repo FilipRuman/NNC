@@ -1,5 +1,5 @@
 ffmpeg \
--i /etc/nixos/NNC/utils/recording_tool/src/media/videos/main/2160p60/DefaultTemplate.mov \
+-i /etc/nixos/NNC/utils/manim/notes/media/videos/main/2160p60/DefaultTemplate.mov \
 -i /etc/nixos/NNC/utils/manim/notes/woosh.wav \
 -i /etc/nixos/NNC/utils/manim/notes/click.wav \
 -filter_complex "

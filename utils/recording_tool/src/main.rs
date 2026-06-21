@@ -173,12 +173,40 @@ pw-record "{}/recording_$(date +%F_%H-%M-%S).wav"
             }
 
             execute_command(format!(
-                r#"manim  -r 3840,2160  --fps 60 --transparent   -qh /etc/nixos/NNC/utils/manim/notes/main.py ; /etc/nixos/NNC/utils/manim/notes/combine.bash"#,
+                r#"manim  -r 3840,2160  --fps 60 --transparent   -qh /etc/nixos/NNC/utils/manim/notes/main.py --media_dir /etc/nixos/NNC/utils/manim/notes/media; /etc/nixos/NNC/utils/manim/notes/combine.bash"#,
+            ));
+        }
+
+        "manim-write" => {
+            {
+                let title = args.next().expect("expected a title name!");
+                let mut file = OpenOptions::new()
+                    .read(true)
+                    .write(true)
+                    .truncate(true)
+                    .open("/etc/nixos/NNC/utils/manim/write/text.txt")
+                    .unwrap();
+                file.write(&title.into_bytes()).unwrap();
+            }
+
+            {
+                if let Some(font_size) = args.next() {
+                    let mut file = OpenOptions::new()
+                        .read(true)
+                        .write(true)
+                        .truncate(true)
+                        .open("/etc/nixos/NNC/utils/manim/write/font_size.txt")
+                        .unwrap();
+                    file.write(&font_size.into_bytes()).unwrap();
+                }
+            }
+
+            execute_command(format!(
+                r#"manim -r 3840,2160  --fps 60 --transparent  --media_dir /etc/nixos/NNC/utils/manim/write/media --format mov -qh /etc/nixos/NNC/utils/manim/write/manin.py ; cp  "/etc/nixos/NNC/utils/manim/write/media/videos/manin/2160p60/ShowWriteReversed.mov" "./write_anim.mov""#,
             ));
         }
         "manim-logo" => {
             let logo_path = args.next().expect("expected a logo file path!");
-            println!("logo_path:{logo_path}");
             execute_command(format!(
                 r#"cp {} "/etc/nixos/NNC/utils/manim/logo/logo.svg" ;manim -r 3840,2160  --fps 60 --transparent  --media_dir /etc/nixos/NNC/utils/manim/logo/media --format mov -qh /etc/nixos/NNC/utils/manim/logo/main.py ; cp  "/etc/nixos/NNC/utils/manim/logo/media/videos/main/2160p60/DefaultTemplate.mov" "./logo_anim.mov""#,
                 logo_path

@@ -14,3 +14,13 @@ flake.lock
 /utils/recording_tool/media
 /utils/recording_tool/media/videos/main/1080p60
 /utils/manim/logo/media/videos/main
+/utils/manim/notes/media
+/utils/manim/write/__pycache__
+/utils/manim/notes/__pycache__
+/utils/manim/logo/logo.svg
+/utils/manim/write/font_size.txt
+/utils/manim/notes/text.txt
+/utils/manim/notes/title.txt
+/utils/manim/write/media
+/utils/manim/write/text.txt
+/utils/recording_tool/src/media
