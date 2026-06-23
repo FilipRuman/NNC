@@ -19,7 +19,7 @@
         }
       ];
       exec-once = [
-        "noctalia-shell"
+        "noctalia"
         "Hypridle"
         "waypaper --random"
       ];
@@ -79,7 +79,7 @@
         "Super Control_L, S, exec,systemctl suspend"
         "Super SHIFT Control_L, R, exec, reboot"
 
-        "SUPER, H, exec, noctalia-shell ipc call launcher toggle"
+        "SUPER, H, exec, noctalia msg panel-toggle launcher"
 
         "Super, G, exec, ghostty"
         # "Super, H, exec, rofi -show drun"

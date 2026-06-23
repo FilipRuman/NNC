@@ -38,14 +38,14 @@
           mSurface = colors.base00;
           mOnSurface = colors.base05;
 
-          mHover = colors.base01;
-          mOnHover = colors.base05;
-
           mSurfaceVariant = colors.base02;
           mOnSurfaceVariant = colors.base0B;
 
           mOutline = colors.base04;
           mShadow = colors.base00;
+
+          mHover = colors.base01;
+          mOnHover = colors.base05;
 
           terminal = {
             background = colors.base00;
@@ -54,8 +54,8 @@
             cursor = colors.base05;
             cursorText = colors.base00;
 
-            selectionBackground = colors.base05;
-            selectionForeground = colors.base00;
+            selectionBg = colors.base05;
+            selectionFg = colors.base00;
 
             normal = {
               black = colors.base00;
@@ -97,14 +97,14 @@
           mSurface = colors.base07;
           mOnSurface = colors.base00;
 
-          mHover = colors.base02;
-          mOnHover = colors.base00;
-
           mSurfaceVariant = colors.base01;
           mOnSurfaceVariant = colors.base00;
 
           mOutline = colors.base0B;
           mShadow = colors.base03;
+
+          mHover = colors.base02;
+          mOnHover = colors.base00;
 
           terminal = {
             background = colors.base07;
@@ -113,8 +113,8 @@
             cursor = colors.base00;
             cursorText = colors.base07;
 
-            selectionBackground = colors.base00;
-            selectionForeground = colors.base07;
+            selectionBg = colors.base00;
+            selectionFg = colors.base07;
 
             normal = {
               black = colors.base07;
@@ -142,7 +142,6 @@
       };
     in
     {
-      home.file.".config/noctalia/colorschemes/TokyoDarkTerminal/TokyoDarkTerminal.json".text =
-        builtins.toJSON theme;
+      home.file.".config/noctalia/palettes/TokyoDarkTerminal.json".text = builtins.toJSON theme;
     };
 }
