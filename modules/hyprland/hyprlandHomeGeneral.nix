@@ -9,9 +9,18 @@
       };
       input.kb_layout = "pl";
       xwayland.force_zero_scaling = true;
+      layerrule = [
+        {
+          name = "noctalia";
+          "match:namespace" = "noctalia-background-.*$";
+          ignore_alpha = 0.5;
+          blur = true;
+          blur_popups = true;
+        }
+      ];
       exec-once = [
+        "noctalia-shell"
         "Hypridle"
-        "hyprpanel"
         "waypaper --random"
       ];
 
@@ -59,7 +68,7 @@
           "windowsOut, 1, 3.5, ease, slide"
           "border, 1, 6, default"
           "fade, 1, 3, ease"
-          "workspaces, 1, 0.5, ease"
+          "workspaces, 1, 1, ease"
         ];
       };
       bind = [
@@ -70,8 +79,10 @@
         "Super Control_L, S, exec,systemctl suspend"
         "Super SHIFT Control_L, R, exec, reboot"
 
+        "SUPER, H, exec, noctalia-shell ipc call launcher toggle"
+
         "Super, G, exec, ghostty"
-        "Super, H, exec, rofi -show drun"
+        # "Super, H, exec, rofi -show drun"
         "Super, X, exec, hyprlock"
         "Super, V, exec, recording_tool vo"
         "Super, T, exec, recording_tool rec-start"

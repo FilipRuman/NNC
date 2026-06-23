@@ -1,7 +1,7 @@
 { inputs, ... }:
 {
   flake-file.inputs.stylix = {
-    url = "github:nix-community/stylix/pull/2337/head";
+    url = "github:nix-community/stylix/";
     inputs.nixpkgs.follows = "nixpkgs";
   };
 
@@ -59,10 +59,12 @@
   flake.homeModules.general = {
     gtk.enable = true;
     qt.enable = true;
+
     stylix.targets = {
+      noctalia-shell.enable = false;
+      neovide.enable = false;
       dunst.enable = false;
       hyprlock.enable = false;
-      nvf.enable = false;
     };
   };
 }

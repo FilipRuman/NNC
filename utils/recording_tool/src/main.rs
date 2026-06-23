@@ -80,7 +80,7 @@ add 'help' argument to see all possible operations
             execute_command(format!(
                 "ffmpeg -i {path_string} \
         -vf fps=60 \
-        -c:v dnxhd -profile:v dnxhr_lb \
+        -c:v dnxhd -profile:v dnxhr_sq \
         -pix_fmt yuv422p \
         -c:a pcm_s16le \
                     {}",
@@ -88,7 +88,7 @@ add 'help' argument to see all possible operations
             ));
         }
         "rec-end" => {
-            execute_command("pkill -f wf-recorder".to_string());
+            execute_command("pkill -f wf-recorder       ".to_string());
             execute_command("pkill -INT pw-record".to_string());
         }
         "rec-start" => {

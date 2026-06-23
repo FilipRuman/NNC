@@ -74,6 +74,10 @@
           rt = "recording_tool";
           rtp = "recording_tool proj";
           rtt = "recording_tool transcode";
+          rnm = ''
+            set cmd '<>';
+            recording_tool manim-note "<>" "$cmd"
+          '';
           fetch = "nix-shell -p fastfetch --run 'fastfetch'; nix-shell -p dysk --run 'dysk'; nixos-version ; sudo nix profile history --profile /nix/var/nix/profiles/system";
           ncdu = "nix-shell -p ncdu --run 'sudo ncdu /'";
           disk = "dysk; ncdu";

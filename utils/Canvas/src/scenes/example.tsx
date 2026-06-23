@@ -1,31 +1,24 @@
-import { makeScene2D, LezerHighlighter, Layout, lines, Img, Txt } from '@motion-canvas/2d';
-import { createRef, waitFor, all } from '@motion-canvas/core';
+import { makeScene2D, LezerHighlighter, Layout, lines, Img, Txt, Icon, View2D, Rect, SVG, Video } from '@motion-canvas/2d';
+import { createRef, waitFor, all, DEFAULT, easeInOutCubic, Vector2, tween, Reference } from '@motion-canvas/core';
 
-import { CodeWindow } from '../components/CodeWindow';
+import { CodeWindow, replaceAll } from '../components/CodeWindow';
 import { Panel } from '../components/Panel';
 import { MyStyle } from '../components/TextStyle';
 
-
 import { parser as rust_parser } from '@lezer/rust';
+import { parser as python_parser } from '@lezer/python';
+const PythonHighlighter = new LezerHighlighter(python_parser, MyStyle);
 const RustHighlighter = new LezerHighlighter(rust_parser, MyStyle);
 import { parser as c_parser } from '@lezer/cpp';
 const CHighlighter = new LezerHighlighter(c_parser, MyStyle);
-import backgroundImage from '../Background.jpg';
+import backgroundImage from '../Background.png';
 
 
-
-// fontFamily="FiraCode Nerd Font"
+const width = 2800;
+const fontSize = 40;
+const titleFontSize = 50;
 
 export default makeScene2D(function*(view) {
-
-
-
-        const leftWindow = createRef<CodeWindow>();
-        const rightWindow = createRef<CodeWindow>();
-        const width = 1800;
-        const height = 650 * 2;
-        const fontSize = 40;
-        const titleFontSize = 50;
 
         view.add(
                 <Img
@@ -35,119 +28,269 @@ export default makeScene2D(function*(view) {
                 />
 
         );
-        const box = new Panel({
-                width: 800,
-                height: 500,
-        });
-        box.position([0, 800]);
 
-
-        view.add(box);
-
-        box.content().add(
-                <Txt
-                        text="Hello World"
-                        fontSize={48}
-                        fill="white"
-                />,
-        );
+        const window = createRef<CodeWindow>();
+        const layout = createRef<Layout>();
 
         view.add(
                 <Layout
                         layout
+                        ref={layout}
                         direction="row"
                         gap={40}
                         alignItems="start"
                         fontFamily="FiraCode Nerd Font"
-                        y={-300}
+                        y={8000}
                         x={0}
                 >
+
                         <CodeWindow
-                                ref={leftWindow}
-                                highlighter={CHighlighter}
+                                ref={window}
+                                highlighter={PythonHighlighter}
                                 titleFontSize={titleFontSize}
-                                title="decompiled.c"
+                                title="animate_logo.py"
                                 width={width}
-                                height={height}
                                 fontSize={fontSize}
                                 code={`
-  time = time((time_t *)0x0);
-  time = (uint)time;
-  srand(time);
-  for (i = 0; i < (long)file_len; i = i + 1) {
-    random_num = rand();
-    *(byte *)((long)file_buffer + i) =
-        *(byte *)((long)file_buffer + i) ^ (byte)random_num;
-    // file_buffer[i] ^=  (byte)random_num
-    rand_2 = rand();
-    rand_2 = rand_2 & 7;
-    // random_num &=  7
+from manim import *
+class CodeWindow(VGroup):
+    def __init__(
+        self,
+        title="src/main.ts",
+        content="console.log('Hello World');",
+        **kwargs
+    ):
+        super().__init__(**kwargs)
+        title_text = Text(
+            title.strip(),
+            font_size=26,
+            font="FiraCode Nerd Font",
+            color="#cfcfcf",
+        )
 
-    *(byte *)((long)file_buffer + i) =
-        *(byte *)((long)file_buffer + i) << (sbyte)rand_2 |
-        *(byte *)((long)file_buffer + i) >> 8 - (sbyte)rand_2;
-    // file_buffer[i] = file_buffer[i].rotate_right((byte)rand_2)
-  };
+        lines = content.rstrip("\n").split("\n")
+
+        code_text = VGroup(*[
+            Text(
+                line,
+                font_size=20,
+                font="FiraCode Nerd Font",
+                color=WHITE,
+            )
+            for line in lines
+        ])
+
+        code_text.arrange(
+            DOWN,
+            aligned_edge=LEFT,
+            buff=0.08
+        )
+        title_bar_height = 0.6
+
+        padding_x = 0.45
+        padding_top = 0.25
+        padding_bottom = 0.35
+
+        content_width = max(
+            line.width for line in code_text
+        )
+
+        width = max(
+            title_text.width,
+            content_width
+        ) + padding_x * 2
+
+        height = (
+            title_bar_height
+            + code_text.height
+            + padding_top
+            + padding_bottom
+        )
+        window = RoundedRectangle(
+            width=width,
+            height=height,
+            corner_radius=0.2,
+            fill_color="#1e1e1e",
+            fill_opacity=1,
+            stroke_color="#ffffff",
+            stroke_opacity=0.08,
+            stroke_width=1,
+        )
+        title_bar = RoundedRectangle(
+            width=width,
+            height=title_bar_height,
+            corner_radius=0.2,
+            fill_color="#2d2d2d",
+            fill_opacity=1,
+            stroke_width=0,
+        )
+
+        title_bar.move_to(
+            window.get_top()
+            + DOWN * (title_bar_height / 2 - 0.01)
+        )
+        red = Dot(
+            radius=0.08,
+            color="#ff5f57"
+        )
+
+        yellow = Dot(
+            radius=0.08,
+            color="#ffbd2e"
+        )
+
+        green = Dot(
+            radius=0.08,
+            color="#28c840"
+        )
+
+        buttons = VGroup(
+            red,
+            yellow,
+            green
+        ).arrange(
+            RIGHT,
+            buff=0.12
+        )
+
+        buttons.move_to(
+            title_bar.get_left()
+            + RIGHT * 0.45
+        )
+        title_text.move_to(
+            title_bar.get_center()
+        )
+        code_text.align_to(
+            window.get_left(),
+            LEFT
+        )
+
+        code_text.shift(
+            RIGHT * padding_x
+        )
+
+        code_text.align_to(
+            title_bar.get_bottom()
+            + DOWN * 0.25,
+            UP
+        )
+
+
+        # ----------------------------
+        # Add
+        # ----------------------------
+
+        self.add(
+            window,
+            title_bar,
+            buttons,
+            title_text,
+            code_text,
+        )
+
+
+        # Public references
+        self.window = window
+        self.title_text = title_text
+        self.code_text = code_text
+
+        self.red_button = red
+        self.yellow_button = yellow
+        self.green_button = green
+class DefaultTemplate(Scene):
+    def construct(self):
+        window = CodeWindow(
+            title=open("/etc/nixos/NNC/utils/manim/notes/title.txt", "r", encoding="utf-8").read(),
+            content=open("/etc/nixos/NNC/utils/manim/notes/text.txt", "r", encoding="utf-8").read(),
+        )
+
+        # Start above the screen
+        final_pos = ORIGIN  
+
+        window.move_to(final_pos + UP * 6)
+
+        self.play(
+            window.animate.move_to(final_pos),
+            run_time=.4,
+            rate_func=smooth,
+        )
+        self.wait(1)
+
+
+        # Mouse pointer
+        pointer = SVGMobject("/etc/nixos/NNC/utils/manim/notes/pointer.svg")
+        pointer.scale(0.15)
+        
+        # Start above screen
+        pointer.move_to(UP * 4.5)
+        
+        self.play(FadeIn(pointer), run_time=0.15)
+        
+        # Move to red button
+        target = window.red_button.get_center() + DOWN * 0.03 + RIGHT * 0.03
+        
+        self.play(
+            pointer.animate.move_to(target),
+            run_time=0.5,
+            rate_func=smooth,
+        )
+        
+        # Click
+        
+        self.play(
+            pointer.animate.scale(0.92),
+            run_time=0.06,
+        )
+        
+        self.play(
+            pointer.animate.scale(1 / 0.92),
+            run_time=0.08,
+        )
+        
+        # close animation
+        close_point = window.red_button.get_center()
+        
+        self.play(
+            window.animate.scale(
+                0.01,
+                about_point=close_point,
+            ).set_opacity(0),
+            run_time=0.18,
+            rate_func=rush_into,
+        )
+        
+        self.play(
+            pointer.animate.move_to(UP * 4.5),
+            run_time=0.4,
+            rate_func=smooth,
+        )
+        
+        self.play(FadeOut(pointer), run_time=0.1)
+
+
 `}
                         />
 
-                        <CodeWindow
-                                ref={rightWindow}
-                                highlighter={RustHighlighter}
-                                titleFontSize={titleFontSize}
-                                title="decryptor.rs"
-                                height={height}
-                                width={width}
-                                fontSize={fontSize}
-                                code={`\
-use libc::{rand, srand};
-use std::fs::read;
-
-fn main() {
-    let contents = read("../flag.enc").unwrap();
-    let time = u32::from_le_bytes(contents[0..4].try_into().unwrap());
-    println!("time: {time}");
-    let mut output = vec![];
-
-    unsafe {
-        srand(time);
-    }
-    for byte in contents[4..contents.len()].into_iter() {
-        let rand_1 = unsafe { rand() };
-        let rand_2 = unsafe { rand() } & 7;
-        let rot = byte.rotate_right(rand_2 as u32);
-        let dec = rot ^ (rand_1 as u8);
-        output.push(dec);
-    }
-    println!("{}", String::from_utf8(output).unwrap());
-}
-`}
-                        />
                 </Layout>,
         );
 
-        const leftRef = leftWindow().code();
-        const rightRef = rightWindow().code();
-        yield* all(
-                leftRef.selection([lines(2, 5), lines(9, 10)], 0.8),
-                rightRef.selection([lines(5), lines(8, 14)], 0.8),
-        );
-        yield* waitFor(1);
-        yield* all(
-                leftRef.selection(lines(6, 7), 0.8),
-                rightRef.selection(lines(16), 0.8),
-        );
-        yield* waitFor(1);
 
-        yield* all(
-                leftRef.selection(lines(13, 16), 0.8),
-                rightRef.selection(lines(15), 0.8),
+        yield* all(layout().position([0, 4300], 0.8),
         );
+
+        yield* waitFor(1);
+        yield* layout().position([0, -4300], 12);
+        yield* waitFor(1);
+        yield* layout().position([0, -2200], 0.4);
+
         yield* waitFor(1);
 
 
-
-
-
+        // End animation
+        yield* all(
+                layout().position([0, -8000], 0.8),
+        );
 
 });
+
+

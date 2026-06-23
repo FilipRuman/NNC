@@ -35,7 +35,9 @@
       modes-nvim = {
         # doesn't work D:
         enable = false;
-        setupOpts.colors = {visual = "#fffffff";};
+        setupOpts.colors = {
+          visual = "#fffffff";
+        };
       };
       illuminate.enable = true;
       smartcolumn = {
@@ -45,7 +47,10 @@
           nix = "110";
           ruby = "120";
           java = "130";
-          go = ["90" "130"];
+          go = [
+            "90"
+            "130"
+          ];
         };
       };
       fastaction.enable = true;

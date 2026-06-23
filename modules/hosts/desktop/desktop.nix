@@ -17,6 +17,7 @@
     nixosConfigurations.desktop = inputs.nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = with self.nixosModules; [
+        noctalia
         auto_mount
         cs
         zig

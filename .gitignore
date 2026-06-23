@@ -24,3 +24,5 @@ flake.lock
 /utils/manim/write/media
 /utils/manim/write/text.txt
 /utils/recording_tool/src/media
+/utils/Canvas/node_modules
+/utils/Canvas/output

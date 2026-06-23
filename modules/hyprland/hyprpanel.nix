@@ -1,7 +1,7 @@
 {
   flake.homeModules.general = {
     programs.hyprpanel = {
-      enable = true;
+      enable = false;
       settings = {
         terminal = "ghostty";
         menus = {
@@ -16,8 +16,12 @@
           clock.format = "%m %d  %H:%M";
           layouts = {
             "0" = {
-              left = ["dashboard" "workspaces" "windowtitle"];
-              middle = [];
+              left = [
+                "dashboard"
+                "workspaces"
+                "windowtitle"
+              ];
+              middle = [ ];
 
               right = [
                 "volume"

@@ -1,6 +1,20 @@
 import { Circle, Rect, Txt, Layout, Code, LezerHighlighter } from '@motion-canvas/2d';
-import { createRef } from '@motion-canvas/core';
+import { all, createRef } from '@motion-canvas/core';
 
+export function* replaceAll(
+        code: Code,
+        regex: RegExp,
+        replacement: string,
+        duration = 0.6,
+) {
+        const ranges = code.findAllRanges(regex);
+
+        yield* all(
+                ...ranges.map(range =>
+                        code.code.replace(range, replacement, duration),
+                ),
+        );
+}
 export interface CodeWindowProps {
         code: string;
         title?: string;

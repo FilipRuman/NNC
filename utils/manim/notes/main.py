@@ -7,11 +7,6 @@ class CodeWindow(VGroup):
         **kwargs
     ):
         super().__init__(**kwargs)
-
-        # ----------------------------
-        # Text
-        # ----------------------------
-
         title_text = Text(
             title.strip(),
             font_size=26,
@@ -36,11 +31,6 @@ class CodeWindow(VGroup):
             aligned_edge=LEFT,
             buff=0.08
         )
-
-        # ----------------------------
-        # Dimensions
-        # ----------------------------
-
         title_bar_height = 0.6
 
         padding_x = 0.45
@@ -62,11 +52,6 @@ class CodeWindow(VGroup):
             + padding_top
             + padding_bottom
         )
-
-        # ----------------------------
-        # Main window
-        # ----------------------------
-
         window = RoundedRectangle(
             width=width,
             height=height,
@@ -77,12 +62,6 @@ class CodeWindow(VGroup):
             stroke_opacity=0.08,
             stroke_width=1,
         )
-
-
-        # ----------------------------
-        # Title bar
-        # ----------------------------
-
         title_bar = RoundedRectangle(
             width=width,
             height=title_bar_height,
@@ -96,12 +75,6 @@ class CodeWindow(VGroup):
             window.get_top()
             + DOWN * (title_bar_height / 2 - 0.01)
         )
-
-
-        # ----------------------------
-        # Buttons
-        # ----------------------------
-
         red = Dot(
             radius=0.08,
             color="#ff5f57"
@@ -130,21 +103,9 @@ class CodeWindow(VGroup):
             title_bar.get_left()
             + RIGHT * 0.45
         )
-
-
-        # ----------------------------
-        # Position title
-        # ----------------------------
-
         title_text.move_to(
             title_bar.get_center()
         )
-
-
-        # ----------------------------
-        # Position code
-        # ----------------------------
-
         code_text.align_to(
             window.get_left(),
             LEFT
@@ -232,7 +193,7 @@ class DefaultTemplate(Scene):
             run_time=0.08,
         )
         
-        # macOS-style close animation
+        # close animation
         close_point = window.red_button.get_center()
         
         self.play(
@@ -244,7 +205,6 @@ class DefaultTemplate(Scene):
             rate_func=rush_into,
         )
         
-        # Move pointer back up
         self.play(
             pointer.animate.move_to(UP * 4.5),
             run_time=0.4,

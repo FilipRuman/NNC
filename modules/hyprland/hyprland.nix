@@ -5,7 +5,8 @@
       hyprlock
       hypridle
       # dunst
-      hyprpanel
+      # hyprpanel
+
       swaybg
       waypaper
       xdg-desktop-portal
