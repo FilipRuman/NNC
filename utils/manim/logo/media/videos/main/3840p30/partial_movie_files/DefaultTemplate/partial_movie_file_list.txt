@@ -1,2 +1,0 @@
-# This file is used internally by FFMPEG.
-file 'file:/etc/nixos/NNC/utils/manim/logo/media/videos/main/3840p30/partial_movie_files/DefaultTemplate/1781093229_4044932911_223132457.mp4'
