@@ -26,3 +26,4 @@ flake.lock
 /utils/recording_tool/src/media
 /utils/Canvas/node_modules
 /utils/Canvas/output
+/utils/recording_tool/Config.toml
